@@ -2,29 +2,32 @@
     <yd-layout>
         <yd-navbar slot="navbar" title="破电影" bgcolor="#CC0001" color="#FFF"></yd-navbar>
         <yd-list theme="4" class="moive-list">
-            <yd-list-item v-for="item in list" class="moive-list-item" href="">
-                <img class="moive-img" slot="img" :src="item.pic">
-                <span slot="title">{{item.title}}</span>
-                <yd-list-other slot="other">
-                    <div>
-                        <p v-if="item.isShow">
-                            <span>观众    </span><span class="moive-score">{{item.score}}</span>
+            <yd-list-item type="link" v-for="item in list" class="moive-list-item" href="/moive/details">
+                    <img class="moive-img" slot="img" :src="item.pic">
+                    <span slot="title">{{item.title}}</span>
+                    <yd-list-other slot="other">
+                        <div>
+                            <p v-if="item.isShow">
+                                <span>观众    </span><span class="moive-score">{{item.score}}</span>
+                            </p>
+                            <p v-else>
+                                <span class="moive-score">{{item.wantNums}}</span><span>   人想看</span>
+                            </p>
+                            <p>{{item.intro}}</p>
+                            <p>{{item.show}}</p>
+                        </div>
+                        <p v-if="item.isShow" class="moive-btn">
+                            <a href="javascript:;" class="moive-btn_show" @click.prevent="getTick('/moive/ticket')">购票</a>
                         </p>
-                        <p v-else>
-                            <span class="moive-score">{{item.wantNums}}</span><span>   人想看</span>
+                        <p v-else class="moive-btn">
+                            <a href="javascript:;" @click.prevent="getTick('/moive/presell')">预售</a>
                         </p>
-                        <p>{{item.intro}}</p>
-                        <p>{{item.show}}</p>
-                    </div>
-                    <p v-if="item.isShow" class="moive-btn">
-                        <a href="" class="moive-btn_show">购票</a>
-                    </p>
-                    <p v-else class="moive-btn">
-                        <a href="">预售</a>
-                    </p>
-                </yd-list-other>
+                    </yd-list-other>
             </yd-list-item>
         </yd-list>
+        <!--<router-link to="/moive/details" v-for="item in list">
+            {{item.title}}
+        </router-link>-->
         <yd-tabbar slot="tabbar" activeColor="#CC0001">
             <yd-tabbar-item title="电影" link="/moive" active>
                 <yd-icon name="video" slot="icon"></yd-icon>
@@ -39,6 +42,10 @@
                 <yd-icon name="ucenter-outline" slot="icon"></yd-icon>
             </yd-tabbar-item>
         </yd-tabbar>
+        <transition name="router-slid" mode="out-in">
+            <router-view></router-view>
+        </transition>
+        
     </yd-layout>
 </template>
 
@@ -86,6 +93,13 @@ export default {
           wantNums: null
         }
       ]
+    }
+  },
+  methods: {
+    getTick: function(link) {
+        this.$router.push(
+            {path: link}
+        )
     }
   }
 }
@@ -145,5 +159,12 @@ export default {
     }
     .moive-list-item{
         padding: .25rem 0 .2rem 0 !important;
+    }
+    .router-slid-enter-active, .router-slid-leave-active {
+        transition: all .4s;
+    }
+    .router-slid-enter, .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
     }
 </style>
