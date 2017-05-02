@@ -6,7 +6,11 @@
                     <yd-navbar-back-icon color="#FFF"></yd-navbar-back-icon>
                 </router-link>
             </yd-navbar>
-            <p>{{msg}}</p>
+            <section class="movie-header">
+                <div class="moive">
+                    
+                </div>
+            </section>
             <transition name="router-slid" mode="out-in">
                 <router-view></router-view>
             </transition>
