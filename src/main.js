@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import router from './router/router'
 import YDUI from 'vue-ydui'
 import 'vue-ydui/dist/ydui.rem.css'
 
@@ -15,5 +15,5 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
-})
+  render: h => h(App)
+}).$mount('#app')

@@ -14,15 +14,19 @@ export default new Router({
       component: moive
     },
     {
-      path: '/',
+      path: '/moive',
+      component: moive
+    },
+    {
+      path: '/discovery',
       component: discovery
     },
     {
-      path: '/',
+      path: '/home',
       component: home
     },
     {
-      path: '/',
+      path: '/cinema',
       component: cinema
     }
   ]
