@@ -2,7 +2,7 @@
     <yd-layout>
         <yd-navbar slot="navbar" title="破电影" bgcolor="#CC0001" color="#FFF"></yd-navbar>
         <yd-list theme="4" class="moive-list">
-            <yd-list-item v-for="item in list" class="moive-list-item">
+            <yd-list-item v-for="item in list" class="moive-list-item" href="">
                 <img class="moive-img" slot="img" :src="item.pic">
                 <span slot="title">{{item.title}}</span>
                 <yd-list-other slot="other">
@@ -13,7 +13,6 @@
                         <p v-else>
                             <span class="moive-score">{{item.wantNums}}</span><span>   人想看</span>
                         </p>
-                        <div class=""></div>
                         <p>{{item.intro}}</p>
                         <p>{{item.show}}</p>
                     </div>
@@ -106,7 +105,7 @@ export default {
         }
         p{
             color: #666;
-            padding: .05rem 0;
+            padding: .03rem 0;
         }
         .moive-score{
             color: #FFC029;
@@ -121,7 +120,7 @@ export default {
                 display: block;
                 border: 1px solid;
                 padding: .1rem .23rem;
-                margin-top: -0.25rem;
+                margin-top: -0.29rem;
                 border-radius: 4px;
                 color: #52B0EB;
                 border-color: #52B0EB;
