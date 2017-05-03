@@ -1,52 +1,50 @@
 <template>
-    <yd-layout>
-        <yd-navbar slot="navbar" title="破电影" bgcolor="#CC0001" color="#FFF"></yd-navbar>
-        <yd-list theme="4" class="moive-list">
-            <yd-list-item type="link" v-for="item in list" class="moive-list-item" href="/moive/details">
-                    <img class="moive-img" slot="img" :src="item.pic">
-                    <span slot="title">{{item.title}}</span>
-                    <yd-list-other slot="other">
-                        <div>
-                            <p v-if="item.isShow">
-                                <span>观众    </span><span class="moive-score">{{item.score}}</span>
-                            </p>
-                            <p v-else>
-                                <span class="moive-score">{{item.wantNums}}</span><span>   人想看</span>
-                            </p>
-                            <p>{{item.intro}}</p>
-                            <p>{{item.show}}</p>
-                        </div>
-                        <p v-if="item.isShow" class="moive-btn">
-                            <a href="javascript:;" class="moive-btn_show" @click.prevent="getTick('/moive/ticket')">购票</a>
-                        </p>
-                        <p v-else class="moive-btn">
-                            <a href="javascript:;" @click.prevent="getTick('/moive/presell')">预售</a>
-                        </p>
-                    </yd-list-other>
-            </yd-list-item>
-        </yd-list>
-        <!--<router-link to="/moive/details" v-for="item in list">
-            {{item.title}}
-        </router-link>-->
-        <yd-tabbar slot="tabbar" activeColor="#CC0001">
-            <yd-tabbar-item title="电影" link="/moive" active>
-                <yd-icon name="video" slot="icon"></yd-icon>
-            </yd-tabbar-item>
-            <yd-tabbar-item title="影院" link="/cinema">
-                <yd-icon name="home-outline" slot="icon"></yd-icon>
-            </yd-tabbar-item>
-            <yd-tabbar-item title="发现" link="/discovery">
-                <yd-icon name="discover" slot="icon"></yd-icon>
-            </yd-tabbar-item>
-            <yd-tabbar-item title="我的" link="/home">
-                <yd-icon name="ucenter-outline" slot="icon"></yd-icon>
-            </yd-tabbar-item>
-        </yd-tabbar>
+    <div>
+	    <yd-layout id="moive_parent">
+		    <yd-navbar slot="navbar" title="破电影" bgcolor="#CC0001" color="#FFF"></yd-navbar>
+		    <yd-list theme="4" class="moive-list">
+		        <yd-list-item type="link" v-for="item in list" class="moive-list-item" href="/moive/details">
+		            <img class="moive-img" slot="img" :src="item.pic">
+		            <span slot="title">{{item.title}}</span>
+		            <yd-list-other slot="other">
+		                <div>
+		                    <p v-if="item.isShow">
+		                        <span>观众    </span><span class="moive-score">{{item.score}}</span>
+		                    </p>
+		                    <p v-else>
+		                        <span class="moive-score">{{item.wantNums}}</span><span>   人想看</span>
+		                    </p>
+		                    <p>{{item.intro}}</p>
+		                    <p>{{item.show}}</p>
+		                </div>
+		                <p v-if="item.isShow" class="moive-btn">
+		                    <a href="javascript:;" class="moive-btn_show" @click.prevent="getTick('/moive/ticket')">购票</a>
+		                </p>
+		                <p v-else class="moive-btn">
+		                    <a href="javascript:;" @click.prevent="getTick('/moive/presell')">预售</a>
+		                </p>
+		            </yd-list-other>
+		        </yd-list-item>
+		    </yd-list>
+		    <yd-tabbar slot="tabbar" activeColor="#CC0001">
+		        <yd-tabbar-item title="电影" link="/moive" active>
+		            <yd-icon name="video" slot="icon"></yd-icon>
+		        </yd-tabbar-item>
+		        <yd-tabbar-item title="影院" link="/cinema">
+		            <yd-icon name="home-outline" slot="icon"></yd-icon>
+		        </yd-tabbar-item>
+		        <yd-tabbar-item title="发现" link="/discovery">
+		            <yd-icon name="discover" slot="icon"></yd-icon>
+		        </yd-tabbar-item>
+		        <yd-tabbar-item title="我的" link="/home">
+		            <yd-icon name="ucenter-outline" slot="icon"></yd-icon>
+		        </yd-tabbar-item>
+		    </yd-tabbar>
+		</yd-layout>
         <transition name="router-slid" mode="out-in">
-            <router-view></router-view>
-        </transition>
-        
-    </yd-layout>
+        	<router-view></router-view>
+        </transition>  
+    </div>
 </template>
 
 <script>
@@ -54,7 +52,7 @@ export default {
   name: 'moive',
   data () {
     return {
-      msg: 'moive',
+      title: '破电影',
       list: [
         {
           pic: '//p1.meituan.net/movie/cc50791238502ae1fa08df764c5f5c97223987.jpg@128w_180h',
@@ -166,5 +164,12 @@ export default {
     .router-slid-enter, .router-slid-leave-active {
         transform: translate3d(2rem, 0, 0);
         opacity: 0;
+    }
+    #moive_parent{
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	bottom: 0;
+    	right: 0;
     }
 </style>
