@@ -17,3 +17,4 @@ new Vue({
   template: '<App/>',
   render: h => h(App)
 }).$mount('#app')
+

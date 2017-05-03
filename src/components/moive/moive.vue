@@ -2,6 +2,23 @@
     <div>
 	    <yd-layout id="moive_parent">
 		    <yd-navbar slot="navbar" title="破电影" bgcolor="#CC0001" color="#FFF"></yd-navbar>
+		    <yd-slider autoplay="3000">
+                <yd-slider-item>
+                    <a href="javascript:;">
+                        <img src="http://static.ydcss.com/uploads/ydui/1.jpg">
+                    </a>
+                </yd-slider-item>
+                <yd-slider-item>
+                    <a href="javascript:;">
+                        <img src="http://static.ydcss.com/uploads/ydui/2.jpg">
+                    </a>
+                </yd-slider-item>
+                <yd-slider-item>
+                    <a href="javascript:;">
+                        <img src="http://static.ydcss.com/uploads/ydui/3.jpg">
+                    </a>
+                </yd-slider-item>
+            </yd-slider>
 		    <yd-list theme="4" class="moive-list">
 		        <yd-list-item type="link" v-for="item in list" class="moive-list-item" href="/moive/details">
 		            <img class="moive-img" slot="img" :src="item.pic">
@@ -48,8 +65,8 @@
 </template>
 
 <script>
+
 export default {
-  name: 'moive',
   data () {
     return {
       title: '破电影',
@@ -105,6 +122,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
+
     .moive-img{
         margin-top: 0 !important;
     }
@@ -171,5 +189,8 @@ export default {
     	left: 0;
     	bottom: 0;
     	right: 0;
+    }
+    .m-slider{
+        height: 2rem;
     }
 </style>
