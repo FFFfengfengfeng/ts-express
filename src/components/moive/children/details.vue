@@ -77,7 +77,6 @@ export default {
     methods: {
         openContent: function() {
             this.isIntro = !this.isIntro;
-            console.log(window.getComputedStyle(this.$refs.content).height)
         }
     },
     mounted() {
