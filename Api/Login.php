@@ -19,7 +19,7 @@ if (!$conn) {
 $user_name = $_POST["username"];
 $pass_word = $_POST["password"];
 
-$sql = "SELECT * FROM user WHERE username = '" . $user_name . "'";
+$sql = "SELECT * FROM User WHERE username = '" . $user_name . "'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
