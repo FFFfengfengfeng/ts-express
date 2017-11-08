@@ -1,0 +1,12 @@
+/**/
+body,html{
+    height:100%;
+    width: 100%;
+    position: relative;
+}
+.sidebar{
+    background-color: #d9edf7;
+    float: left;
+    height: 100%;
+    width: 220px;
+}
