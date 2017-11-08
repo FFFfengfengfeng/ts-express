@@ -16,14 +16,14 @@
             <div class="form-group">
                 <input type="password" class="form-control" name="password" id="password" placeholder="密码">
             </div>
-            <a href="javascript:;" class="btn-block btn btn-success" id="login-btn">登录</a>
+            <a href="javascript:;" class="btn-block btn btn-success" id="loginBtn">登录</a>
         </form>
     </div>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script>
         (function () {
-            var $loginBtn = $('#login-btn'),
+            var $loginBtn = $('#loginBtn'),
                 $username = $('#username'),
                 $password = $('#password');
             function postLogindata() {
