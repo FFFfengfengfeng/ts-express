@@ -61,3 +61,15 @@ body,html{
     content: " ";
     clear: both;
 }
+.main-content .pagination a,
+.main-content .pagination a:active,
+.main-content .pagination a:visited,
+.main-content .pagination a:focus,
+.main-content .pagination a:hover{
+    border: 1px solid #337ab7;
+    background-color: #FFF;
+}
+.main-content .pagination a.active{
+    background-color: #337ab7;
+    color: #FFF;
+}

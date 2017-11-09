@@ -20,8 +20,10 @@ function query_list($keyword = null, $page = 1, $size = 10) {
     $data     = [];              //返回数据
     if ($keyword) {
         $sql = "SELECT * FROM Company WHERE NAME LIKE '%" . $keyword . "%'";
+        $total    = mysqli_num_rows(mysqli_query($GLOBALS["conn"], $sql));
     } else {
         $sql = "SELECT * FROM Company limit " . (($page - 1) * $size) . "," . $size;
+        $total    = mysqli_num_rows(mysqli_query($GLOBALS["conn"], "SELECT * FROM Company"));
     }
     $result = mysqli_query($GLOBALS["conn"], $sql);
 
@@ -45,7 +47,7 @@ function query_list($keyword = null, $page = 1, $size = 10) {
         }
         $success = "1";
         $message = "获取成功";
-        $total    = mysqli_num_rows(mysqli_query($GLOBALS["conn"], "SELECT * FROM Company"));
+
     }
     $json = array("success" => $success, "data" => $data, "message" => $message, "total" => $total);
 

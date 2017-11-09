@@ -53,22 +53,22 @@
                 <tbody id="companyList"></tbody>
             </table>
             <nav aria-label="Page navigation" class="text-right">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
+                <ul class="pagination" data-total="">
+                    <!--<li>-->
+                        <!--<a href="#" aria-label="Previous">-->
+                            <!--<span aria-hidden="true">&laquo;</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li><a href="#">1</a></li>-->
+                    <!--<li><a href="#">2</a></li>-->
+                    <!--<li><a href="#">3</a></li>-->
+                    <!--<li><a href="#">4</a></li>-->
+                    <!--<li><a href="#">5</a></li>-->
+                    <!--<li>-->
+                        <!--<a href="#" aria-label="Next">-->
+                            <!--<span aria-hidden="true">&raquo;</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
                 </ul>
             </nav>
         </div>
@@ -97,7 +97,6 @@
     <script>
         (function ($) {
             function getList(keyword, page) {
-                var page = 1 || page;
                 $.ajax({
                     url: '../../Api/Company/List.php',
                     data: {
@@ -110,24 +109,30 @@
                     success: function (res) {
                         $('#companyList').html('');
                         var data = res.data;
-                        console.log(data);
                         if (data.length > 0) {
                             for (var i = 0; i < data.length; i ++) {
                                 $('#companyList').append(tmpl('listTmpl', data[i]));
                             }
                         }
+                        if (page === 1) {
+
+                            $('.pagination').page({
+                                size: 10,
+                                total: res.total,
+                                fn: getList
+                            });
+                        }
+
                     }
                 });
             }
-            getList();
+            getList('', 1);
+
+
             $('#searchBtn').on('click', function (e) {
                 var $searchInput = $('#searchInput'),
                     val = $searchInput.val();
-                if (val === '') {
-                    return;
-                } else {
-                    getList(val);
-                }
+                getList(val);
             })
         })(jQuery);
     </script>
