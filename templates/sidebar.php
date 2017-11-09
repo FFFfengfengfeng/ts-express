@@ -1,6 +1,6 @@
 <div class="sidebar" id="sidebar">
     <div class="list-group">
-        <a href="views/company.php" class="list-group-item">公司管理</a>
+        <a href="views/company/index.php" class="list-group-item">公司管理</a>
         <a href="javascript:;" class="list-group-item">人员管理</a>
         <a href="javascript:;" class="list-group-item">地点管理</a>
         <a href="javascript:;" class="list-group-item">保险管理</a>
