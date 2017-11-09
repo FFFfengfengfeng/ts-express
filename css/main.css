@@ -12,7 +12,9 @@ body,html{
 }
 .sidebar .list-group{
 }
-.sidebar .list-group-item{
+.sidebar .list-group-item,
+.sidebar .list-group-item:active,
+.sidebar .list-group-item:focus{
     border: none;
     border-radius: 0;
     background-color: transparent;
@@ -22,6 +24,10 @@ body,html{
     text-align: center;
 }
 .sidebar .list-group-item:hover{
+    background-color: #68dff0;
+    color: #FFF;
+}
+.sidebar .list-group-item.active{
     background-color: #68dff0;
     color: #FFF;
 }
@@ -44,4 +50,14 @@ body,html{
 .main-content .panel-body{
     box-sizing: border-box;
     padding: 20px 30px 0 30px;
+}
+.main-content .operate-bar{
+    margin-bottom: 20px;
+    height: 40px;
+    line-height: 40px;
+}
+.main-content .operate-bar:after{
+    display: block;
+    content: " ";
+    clear: both;
 }
