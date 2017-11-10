@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <title>网销发布</title>
+</head>
+<body>
+<div class="sidebar" id="sidebar">
+    <div class="list-group">
+        <a href="../company/"    class="list-group-item">公司管理</a>
+        <a href="../employee/"   class="list-group-item">人员管理</a>
+        <a href="../place/"      class="list-group-item">地点管理</a>
+        <a href="../type/"       class="list-group-item">保险管理</a>
+        <a href="../contract/"   class="list-group-item">合同管理</a>
+        <a href="../compensate/" class="list-group-item">理赔管理</a>
+        <a href="../customer/"   class="list-group-item">对象管理</a>
+        <a href="../compete/"    class="list-group-item">竞争分析</a>
+        <a href="../release/"    class="list-group-item active">网销发布</a>
+        <a href="../down/"       class="list-group-item">网销下载</a>
+        <a href="../backstage"   class="list-group-item">后台管理</a>
+    </div>
+</div>
+<div class="main-content">
+    <div class="panel panel-default">
+        <div class="panel-heading">网销发布</div>
+    </div>
+    <div class="panel-body">
+        <div class="operate-bar">
+            <div class="form-inline pull-left">
+                <div class="form-group">
+                    <input type="text" placeholder="搜索" class="form-control" id="searchInput">
+                </div>
+                <a href="javascript:;" class="btn btn-info" id="searchBtn">搜索</a>
+            </div>
+            <div class="pull-right">
+                <a href="/add.html" class="btn btn-default">
+                    <span class="glyphicon glyphicon-plus"></span>&nbsp;新增
+                </a>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead class="bg-primary">
+            <tr>
+                <td>网销地点</td>
+                <td>市场份额</td>
+                <td>投入</td>
+                <td>盈利</td>
+                <td>保单数量</td>
+                <td>员工数量</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody id="companyList"></tbody>
+        </table>
+        <nav aria-label="Page navigation" class="text-right">
+            <ul class="pagination"></ul>
+        </nav>
+    </div>
+</div>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script src="../../js/bootstrap.js"></script>
+<script src="../../js/tmpl.min.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

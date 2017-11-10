@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="../../css/main.css">
-    <title>公司管理</title>
+    <title>网销人员管理</title>
 </head>
 <body>
     <div class="sidebar" id="sidebar">
         <div class="list-group">
-            <a href="../company/"    class="list-group-item active">公司管理</a>
-            <a href="../employee/"   class="list-group-item">人员管理</a>
+            <a href="../company/"    class="list-group-item">公司管理</a>
+            <a href="../employee/"   class="list-group-item active">人员管理</a>
             <a href="../place/"      class="list-group-item">地点管理</a>
             <a href="../type/"       class="list-group-item">保险管理</a>
             <a href="../contract/"   class="list-group-item">合同管理</a>
@@ -24,7 +24,7 @@
     </div>
     <div class="main-content">
         <div class="panel panel-default">
-            <div class="panel-heading">公司管理</div>
+            <div class="panel-heading">网销人员管理</div>
             <div class="panel-body">
                 <div class="operate-bar">
                     <div class="form-inline pull-left">
@@ -41,18 +41,20 @@
                     <img src="../../images/loading.gif" alt="">
                 </div>
                 <div class="main-show">
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered">
                         <thead class="bg-primary">
                         <tr>
                             <td>id</td>
-                            <td>公司名</td>
-                            <td>公司logo</td>
-                            <td>公司种类</td>
-                            <td>公司地址</td>
+                            <td>姓名</td>
+                            <td>性别</td>
+                            <td>员工编号</td>
+                            <td>所在区域</td>
+                            <td>绩效KPI</td>
+                            <td>订单数目</td>
                             <td>操作</td>
                         </tr>
                         </thead>
-                        <tbody id="companyList"></tbody>
+                        <tbody id="employeeList"></tbody>
                     </table>
                     <nav aria-label="Page navigation" class="text-right">
                         <ul class="pagination"></ul>
@@ -62,16 +64,18 @@
         </div>
     </div>
     <script src="../../js/jquery-3.2.1.min.js"></script>
-    <script src="../../js/tmpl.min.js"></script>
     <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/tmpl.min.js"></script>
     <script src="../../js/main.js"></script>
     <script type="text/x-tmpl" id="listTmpl">
         <tr>
             <td>{%=o.id%}</td>
             <td>{%=o.name%}</td>
-            <td>{%=o.logo%}</td>
-            <td>{%=o.type%}</td>
-            <td>{%=o.address%}</td>
+            <td>{%=o.sex%}</td>
+            <td>{%=o.number%}</td>
+            <td>{%=o.region%}</td>
+            <td>{%=o.kpi%}</td>
+            <td>{%=o.orders%}</td>
             <td class="text-center">
                 <a href="javascript:;" data-id="{%=o.id%}" class="company-delete-btn btn btn-danger">
                     <span class="glyphicon glyphicon-trash"></span>
@@ -83,34 +87,36 @@
         </tr>
     </script>
     <script>
-        (function ($) {
+        (function () {
             function getList(keyword, page) {
                 $.ajax({
-                    url: '../../Api/Company/List.php',
+                    url: '../../Api/Employee/List.php',
                     data: {
-                        page: page,
-                        keyword: keyword,
-                        size: 10
+                       keyword: keyword,
+                       page: page,
+                       size: 10
                     },
                     dataType: 'json',
                     method: 'POST',
                     success: function (res) {
-                        $('#companyList').html('');
-                        var data = res.data;
-                        if (data.length > 0) {
-                            for (var i = 0; i < data.length; i ++) {
-                                $('#companyList').append(tmpl('listTmpl', data[i]));
+                        if (res.success === 1) {
+                            var data = res.data;
+                            $('#employeeList').html('');
+                            if (data.length > 0) {
+                                for (var i = 0; i < data.length; i ++) {
+                                    $('#employeeList').append(tmpl('listTmpl', data[i]));
+                                }
+                            } else {
+
+                            }
+                            if (page === 1) {
+                                $('.pagination').page({
+                                    size: 10,
+                                    total: res.total,
+                                    fn: getList
+                                });
                             }
                         }
-                        if (page === 1) {
-
-                            $('.pagination').page({
-                                size: 10,
-                                total: res.total,
-                                fn: getList
-                            });
-                        }
-
                     },
                     complete: function () {
                         $('.main-loading').hide();
@@ -119,14 +125,12 @@
                 });
             }
             getList('', 1);
-
-
-            $('#searchBtn').on('click', function (e) {
+            $('#searchBtn').on('click', function () {
                 var $searchInput = $('#searchInput'),
                     val = $searchInput.val();
                 getList(val);
             })
-        })(jQuery);
+        })();
     </script>
 </body>
 </html>
