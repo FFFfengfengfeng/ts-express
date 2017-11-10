@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-11-09 19:30:59
+Date: 2017-11-10 19:51:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -45,6 +45,44 @@ INSERT INTO `company` VALUES ('11', '人保车险', null, null, '3');
 INSERT INTO `company` VALUES ('12', '中华联合', null, null, '3');
 INSERT INTO `company` VALUES ('13', '大地车险', null, null, '3');
 INSERT INTO `company` VALUES ('14', '永安车险', null, null, '3');
+
+-- ----------------------------
+-- Table structure for employee
+-- ----------------------------
+DROP TABLE IF EXISTS `employee`;
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `number` varchar(11) NOT NULL,
+  `region` varchar(255) NOT NULL,
+  `kpi` varchar(255) DEFAULT NULL,
+  `orders` varchar(255) DEFAULT NULL,
+  `sex` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of employee
+-- ----------------------------
+INSERT INTO `employee` VALUES ('2', '王大雷', 'KC2017001', '北京', '20', '1,6', '男');
+
+-- ----------------------------
+-- Table structure for place
+-- ----------------------------
+DROP TABLE IF EXISTS `place`;
+CREATE TABLE `place` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `market` varchar(255) DEFAULT NULL,
+  `input` varchar(255) NOT NULL,
+  `profit` varchar(255) DEFAULT NULL,
+  `orders` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of place
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for user
