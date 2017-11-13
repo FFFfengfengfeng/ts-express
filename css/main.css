@@ -40,7 +40,7 @@ body,html{
     padding-left: 220px;
     width: 100%;
 }
-.main-content .panel{
+.main-content .panel-default{
     border: none;
     border-radius: 0;
     margin-bottom: 0;
@@ -97,4 +97,26 @@ body,html{
     100%{
         transform: scale(1,1);
     }
+}
+.card{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.card:after{
+    display: block;
+    content: ' ';
+    clear: both;
+}
+.card .card-item{
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 33.3333333%;
+    margin-bottom: 30px;
+}
+.card-item .panel-body{
+    padding: 20px 30px;
+}
+.card-delete{
+    cursor: pointer;
 }
