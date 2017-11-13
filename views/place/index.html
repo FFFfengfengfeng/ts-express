@@ -52,7 +52,7 @@
                             <td>操作</td>
                         </tr>
                         </thead>
-                        <tbody id="companyList"></tbody>
+                        <tbody id="placeList"></tbody>
                     </table>
                     <nav aria-label="Page navigation" class="text-right">
                         <ul class="pagination"></ul>
@@ -65,11 +65,67 @@
     <script src="../../js/bootstrap.js"></script>
     <script src="../../js/tmpl.min.js"></script>
     <script src="../../js/main.js"></script>
+    <script type="text/x-tmpl" id="listTmpl">
+        <tr>
+            <td>{%=o.name%}</td>
+            <td>{%=o.market%}</td>
+            <td>{%=o.input%}</td>
+            <td>{%=o.profit%}</td>
+            <td>{%=o.orders%}</td>
+            <td class="text-center">
+                <a href="javascript:;" data-id="{%=o.id%}" class="company-delete-btn btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+                <a href="javascript:;" data-id="{%=o.id%}" class="company-delete-btn btn btn-success">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+            </td>
+        </tr>
+    </script>
     <script>
         (function () {
-            function getList() {
-                
+            function getList(keyword, page) {
+                $.ajax({
+                    url: '../../Api/Place/List.php',
+                    data: {
+                        keyword: keyword,
+                        page: page,
+                        size: 10
+                    },
+                    dataType: 'json',
+                    method: 'POST',
+                    success: function (res) {
+                        if (res.success === 1) {
+                            var data = res.data;
+                            $('#employeeList').html('');
+                            if (data.length > 0) {
+                                for (var i = 0; i < data.length; i ++) {
+                                    $('#placeList').append(tmpl('listTmpl', data[i]));
+                                }
+                            } else {
+
+                            }
+                            if (page === 1) {
+                                $('.pagination').page({
+                                    size: 10,
+                                    total: res.total,
+                                    fn: getList
+                                });
+                            }
+                        }
+                    },
+                    complete: function () {
+                        $('.main-loading').hide();
+                        $('.main-show').fadeIn();
+                    }
+                });
             }
+            getList('', 1);
+            $('#searchBtn').on('click', function () {
+                var $searchInput = $('#searchInput'),
+                    val = $searchInput.val();
+                getList(val);
+            })
         })();
     </script>
 </body>
