@@ -31,16 +31,19 @@ function query_list($keyword = null, $page = 1, $size = 10) {
         while ($row = mysqli_fetch_assoc($result)) {
             switch ($row["type"]) {//保险公司的种类: 1.人寿保险,2.养老保险,3.汽车保险,4.财产保险
                 case "1":
-                    $row["type"] = "人寿保险";
+                    $row["type"] = "财产保险";
                     break;
                 case "2":
-                    $row["type"] = "养老保险";
+                    $row["type"] = "人身保险";
                     break;
                 case "3":
-                    $row["type"] = "汽车保险";
+                    $row["type"] = "责任保险";
                     break;
                 case "4":
-                    $row["type"] = "财产保险";
+                    $row["type"] = "信用保险";
+                    break;
+                case "5":
+                    $row["type"] = "保证保险";
                     break;
             }
             array_push($data, $row);

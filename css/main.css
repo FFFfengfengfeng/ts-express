@@ -69,6 +69,11 @@ body,html{
     height: 80%;
     overflow: hidden;
 }
+.main-content .preview-box{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #EEE;
+}
 .main-content .pagination a,
 .main-content .pagination a:active,
 .main-content .pagination a:visited,

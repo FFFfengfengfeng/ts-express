@@ -34,7 +34,7 @@
                         <a href="javascript:;" class="btn btn-info" id="searchBtn">搜索</a>
                     </div>
                     <div class="pull-right">
-                        <a href="/add.html" class="btn btn-default">新增</a>
+                        <a href="add.html" class="btn btn-default">新增</a>
                     </div>
                 </div>
                 <div class="main-loading">
@@ -44,11 +44,10 @@
                     <table class="table table-bordered table-striped">
                         <thead class="bg-primary">
                         <tr>
-                            <td>id</td>
                             <td>公司名</td>
                             <td>公司logo</td>
                             <td>公司种类</td>
-                            <td>公司地址</td>
+                            <td>所属地域</td>
                             <td>操作</td>
                         </tr>
                         </thead>
@@ -67,7 +66,6 @@
     <script src="../../js/main.js"></script>
     <script type="text/x-tmpl" id="listTmpl">
         <tr>
-            <td>{%=o.id%}</td>
             <td>{%=o.name%}</td>
             <td>{%=o.logo%}</td>
             <td>{%=o.type%}</td>
@@ -76,7 +74,7 @@
                 <a href="javascript:;" data-id="{%=o.id%}" class="company-delete-btn btn btn-danger">
                     <span class="glyphicon glyphicon-trash"></span>
                 </a>
-                <a href="javascript:;" data-id="{%=o.id%}" class="company-delete-btn btn btn-success">
+                <a href="edit.html?id={%=o.id%}" class="company-delete-btn btn btn-success">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
             </td>
@@ -118,6 +116,20 @@
                     }
                 });
             }
+            function deleteCompany(id) {
+                $.ajax({
+                    url: '../../Api/Company/Delete.php',
+                    data: {
+                        id: id
+                    },
+                    dataType: 'json',
+                    method: 'POST',
+                    success: function(res) {
+
+                    }
+                });
+            }
+
             getList('', 1);
 
 
