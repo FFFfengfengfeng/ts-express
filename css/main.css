@@ -39,6 +39,7 @@ body,html{
     height: 100%;
     padding-left: 220px;
     width: 100%;
+    overflow-y: visible;
 }
 .main-content .panel-default{
     border: none;
@@ -62,6 +63,11 @@ body,html{
     display: block;
     content: " ";
     clear: both;
+}
+.main-content .form-horizontal{
+    width: 40%;
+    height: 80%;
+    overflow: hidden;
 }
 .main-content .pagination a,
 .main-content .pagination a:active,
