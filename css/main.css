@@ -65,7 +65,7 @@ body,html{
     clear: both;
 }
 .main-content .form-horizontal{
-    width: 40%;
+    width: 50%;
     height: 80%;
     overflow: hidden;
 }
@@ -73,6 +73,7 @@ body,html{
     width: 200px;
     height: 200px;
     border: 1px solid #EEE;
+    margin-top: 20px;
 }
 .main-content .pagination a,
 .main-content .pagination a:active,
@@ -130,5 +131,4 @@ body,html{
 }
 .card-delete{
     cursor: pointer;
-    
 }
