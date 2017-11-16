@@ -123,12 +123,13 @@
         queryString: function (name) {
             var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
-            if(r!=null) {
-                return
-            } else {
-                unescape(r[2]);
-                return null;
-            }
+            console.log(r);
+            // if(r!=null) {
+            //     return
+            // } else {
+            //     unescape(r[2]);
+            //     return null;
+            // }
         }
     })
 }(window, jQuery);
