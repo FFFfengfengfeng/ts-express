@@ -142,19 +142,35 @@
                 var selPlace  = $('#selPlace').val(),
                     selType   = $('#selType').val(),
                     inputName = $('#inputName').val(),
-                    formAlert = $('#formAlert');
+                    formAlert = $('#formAlert'),
+                    logo      = $('.preview-img').attr('src');
                 if (selPlace === '-1' || selType === '-1' || inputName === '') {
+                    formAlert.removeClass('hide');
                     formAlert.fadeIn();
                 }
-                if (selPlace === '-1') {
-                    formAlert.html('请选择地区');
+                if (inputName === '') {
+                    formAlert.html('请输入公司名字');
                 } else if (selType === '-1') {
                     formAlert.html('请选择类型');
-                } else if (inputName === '') {
-                    formAlert.html('请输入公司名字');
+                } else if (selPlace === '-1') {
+                    formAlert.html('请选择地区');
                 } else {
+                    formAlert.addClass('hide');
                     $.ajax({
-
+                        url: '../../Api/Company/add.php',
+                        data: {
+                            name : inputName,
+                            logo : logo,
+                            place: selPlace,
+                            type : selType
+                        },
+                        method: 'POST',
+                        dataType: 'json',
+                        success: function (res) {
+                            if (res.success === "1") {
+                                window.location.href = "index.html";
+                            }
+                        }
                     });
                 }
             })

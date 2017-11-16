@@ -67,9 +67,9 @@
     <script type="text/x-tmpl" id="listTmpl">
         <tr>
             <td>{%=o.name%}</td>
-            <td>{%=o.logo%}</td>
+            <<td><img src="{%=o.logo%}" alt=""></td></td>
             <td>{%=o.type%}</td>
-            <td>{%=o.address%}</td>
+            <td>{%=o.place%}</td>
             <td class="text-center">
                 <a href="javascript:;" data-id="{%=o.id%}" class="company-delete-btn btn btn-danger">
                     <span class="glyphicon glyphicon-trash"></span>
@@ -137,6 +137,12 @@
                 var $searchInput = $('#searchInput'),
                     val = $searchInput.val();
                 getList(val);
+            })
+
+            $('body').on('click', '.company-delete-btn', function (e) {
+                var id = $(this).attr('data-id');
+                deleteCompany(id);
+                getList('', 1);
             })
         })(jQuery);
     </script>
