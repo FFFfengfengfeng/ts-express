@@ -14,16 +14,18 @@ if (!$conn) {
     $message = "连接失败";
 }
 
-function query_list($keyword = null, $page = 1, $size = 10) {
+function query_list($keyword, $page, $size) {
     $success  = "";              //请求状态 0.失败 1.成功
     $message  = "";              //请求打印信息
     $data     = [];              //返回数据
-    if ($keyword) {
+    if (isset($keyword)) {
         $sql = "SELECT * FROM Place WHERE NAME LIKE '%" . $keyword . "%'or NUMBER LIKE '%" . $keyword . "%'";
         $total = mysqli_num_rows(mysqli_query($GLOBALS["conn"], $sql));
-    } else {
+    } else if (isset($page) && isset($size)){
         $sql = "SELECT * FROM Place limit " . (($page - 1) * $size) . "," . $size;
-        $total = mysqli_num_rows(mysqli_query($GLOBALS["conn"], "SELECT * FROM Employee"));
+        $total = mysqli_num_rows(mysqli_query($GLOBALS["conn"], "SELECT * FROM Place"));
+    } else {
+        $sql = "SELECT * FROM Place";
     }
     $result = mysqli_query($GLOBALS["conn"], $sql);
 

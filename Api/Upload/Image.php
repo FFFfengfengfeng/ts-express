@@ -1,25 +1,26 @@
 <?php
 header('Content-type: application/json; charset=utf-8');
-function save_image($image, $dir, $filename='') {
-    $dir = realpath($dir);
 
-    $filename = (empty($filename) ? '/'.time().'/'.$filename);
-    $filename = $dir . $filename;
+$path = "../../upload/";
 
-    ob_start();
-    readfile($image);
-    $img = ob_get_contents();
-    ob_end_clean();
-    $fp2 = fopen($filename , "a");
-    fwrite($fp2, $img);
-    return $filename;
+if (isset($_POST)) {
+    $name = $_FILES["file"]["name"];
+    $size = $_FILES["file"]["size"];
+    $name_tmp = $_FILES["file"]["tmp_name"];
+
+    $type = strtolower(substr(strrchr($name, '.'), 1)); //获取文件类型
+
+    $pic_name = time() . rand(10000, 99999) . "." . $type;//图片名称
+    $pic_url = $path . $pic_name;//上传后图片路径+名称
+    $json = "";
+
+    if (move_uploaded_file($name_tmp, $pic_url)) { //临时文件转移到目标文件夹
+        $json = array("success" => "1", "src" => $pic_url, "name" => $pic_name, "message" => "上传成功");
+    } else {
+        $json = array("success" => "0", "message" => "上传失败");
+    }
+
 }
 
-$image = $_FILES;
-
-if ($image) {
-    $path = save_image($image, '../../upload');
-    $json = array("success" => "1", "message" => "保存成功", "path" => $path);
-    echo json_encode($json, JSON_UNESCAPED_UNICODE);
-}
+echo json_encode($json, JSON_UNESCAPED_UNICODE);
 ?>

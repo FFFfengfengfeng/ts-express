@@ -28,16 +28,16 @@
             <div class="panel-body">
                 <form action="" class="form-horizontal">
                     <div class="form-group">
-                        <label for="" class="control-label col-sm-3">公司名:</label>
+                        <label for="inputName" class="control-label col-sm-3">公司名:</label>
                         <div class="col-sm-3">
-                            <input type="email" class="form-control" id="" placeholder="名称">
+                            <input type="email" class="form-control" id="inputName" placeholder="名称">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="control-label col-sm-3">公司种类:</label>
                         <div class="col-sm-3">
-                            <select class="form-control">
-                                <option>请选择</option>
+                            <select class="form-control" id="selType">
+                                <option value="-1">请选择</option>
                                 <option value="1">财产保险</option>
                                 <option value="2">人身保险</option>
                                 <option value="3">责任保险</option>
@@ -49,14 +49,7 @@
                     <div class="form-group">
                         <label for="" class="control-label col-sm-3">地区:</label>
                         <div class="col-sm-3">
-                            <select class="form-control">
-                                <option>请选择</option>
-                                <option value="1">华北</option>
-                                <option value="2">华东</option>
-                                <option value="3">东北</option>
-                                <option value="4">华南</option>
-                                <option value="5">华中</option>
-                            </select>
+                            <select class="form-control" id="selPlace"></select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -67,13 +60,15 @@
                             </a>
                             <span class="text-danger">请上传200x200的图片</span>
                             <div class="preview-box">
-                                <img src="" alt="">
+                                <img class="preview-img" src="" alt="">
                             </div>
+                            <p class="btn-upload-txt text-danger"></p>
                         </div>
                     </div>
                     <div class="col-sm-9 col-sm-offset-3">
-                        <div class="form-group"></div>
-                        <a href="javascript:;" class="btn btn-success">保存</a>
+                        <!--<div class="form-group"></div>-->
+                        <a href="javascript:;" class="btn btn-success" id="btnSave">保存</a>
+                        <span class="text-danger hide" id="formAlert"></span>
                     </div>
                 </form>
 
@@ -90,7 +85,6 @@
             var uploader = new plupload.Uploader({
                 runtimes: 'html5,html4,flash',
                 browse_button : 'btnUpload', //触发文件选择对话框的按钮，为那个元素id
-//                file_data_name : 'media',
                 url : '../../Api/Upload/Image.php', //服务器端的上传页面地址
                 multi_selection: false,
                 filters: {
@@ -106,25 +100,64 @@
                         uploader.start();
                     },
                     UploadProgress: function(uploader, file) {
-//                        $self.find('p').text('上传中：' + file.percent +'%');
+                        $('.btn-upload-txt').html('上传中：' + file.percent +'%');
                     },
                     FileUploaded: function(uploader, file, response) {
-//                        uploader.disableBrowse(false);
-//                        $self.find('img').attr('src', JSON.parse(response.response).media_src);
-//                        $self.find('img').css({
-//                            'width': '100%'
-//                        })
-//                        $self.find('p').text('上传成功');
-//                        $self.attr('data-src', JSON.parse(response.response).normal_src)
+                        uploader.disableBrowse(false);
+                        var data = JSON.parse(response.response),
+                            src = data.src;
+                        $('.preview-box img').attr('src', src);
+                        $('.btn-upload-txt').html('上传成功');
                     },
                     Error: function(uploader, err) {
-//                        uploader.disableBrowse(false);
-//
-//                        promptMsg('上传失败: ' + err.message);
+                        uploader.disableBrowse(false);
+
+                        $('.btn-upload-txt').html('上传失败');
                    }
                 }
             });
             uploader.init();
+
+            function getPlace() {
+                $.ajax({
+                    url: '../../Api/Place/List.php',
+                    data: {},
+                    dataType: 'json',
+                    method: 'POST',
+                    success: function (res) {
+                        var data = res.data,
+                            str = '<option value="-1">请选择</option>\n';
+                        if (data.length > 0) {
+                            for (var i = 0; i < data.length; i ++) {
+                                str +=  '<option value="' + data[i].id + '">' + data[i].name + '</option>\n';
+                            }
+                        }
+                        $('#selPlace').html(str);
+                    }
+                });
+            }
+            getPlace();
+
+            $('#btnSave').on('click', function (e) {
+                var selPlace  = $('#selPlace').val(),
+                    selType   = $('#selType').val(),
+                    inputName = $('#inputName').val(),
+                    formAlert = $('#formAlert');
+                if (selPlace === '-1' || selType === '-1' || inputName === '') {
+                    formAlert.fadeIn();
+                }
+                if (selPlace === '-1') {
+                    formAlert.html('请选择地区');
+                } else if (selType === '-1') {
+                    formAlert.html('请选择类型');
+                } else if (inputName === '') {
+                    formAlert.html('请输入公司名字');
+                } else {
+                    $.ajax({
+
+                    });
+                }
+            })
         })();
     </script>
 
