@@ -82,7 +82,7 @@
     <script src="../../js/plupload.full.min.js"></script>
     <script>
         (function () {
-            console.log($.queryString('id'));
+
             var uploader = new plupload.Uploader({
                 runtimes: 'html5,html4,flash',
                 browse_button : 'btnUpload', //触发文件选择对话框的按钮，为那个元素id
@@ -118,7 +118,19 @@
                 }
             });
             uploader.init();
+            function getItem(id) {
+                $.ajax({
+                    url: '../../Api/Company/Item.php',
+                    data: {
+                        id: id
+                    },
+                    dataType: 'json',
+                    method: 'POST',
+                    success: function (res) {
 
+                    }
+                });
+            }
             function getPlace() {
                 $.ajax({
                     url: '../../Api/Place/List.php',
@@ -138,7 +150,7 @@
                 });
             }
             getPlace();
-
+            getItem($.queryString('id'));
             $('#btnSave').on('click', function (e) {
                 var selPlace  = $('#selPlace').val(),
                     selType   = $('#selType').val(),
@@ -158,7 +170,7 @@
                 } else {
                     formAlert.addClass('hide');
                     $.ajax({
-                        url: '../../Api/Company/add.php',
+                        url: '../../Api/Company/Edit.php',
                         data: {
                             name : inputName,
                             logo : logo,
@@ -168,9 +180,9 @@
                         method: 'POST',
                         dataType: 'json',
                         success: function (res) {
-                            if (res.success === "1") {
-                                window.location.href = "index.html";
-                            }
+//                            if (res.success === "1") {
+//                                window.location.href = "index.html";
+//                            }
                         }
                     });
                 }

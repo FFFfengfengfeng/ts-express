@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-11-10 19:51:42
+Date: 2017-11-17 18:15:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,16 +23,14 @@ CREATE TABLE `company` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `logo` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
+  `place` varchar(255) DEFAULT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company
 -- ----------------------------
-INSERT INTO `company` VALUES ('1', '国寿股份', null, null, '1');
-INSERT INTO `company` VALUES ('2', '中国人寿', null, null, '1');
 INSERT INTO `company` VALUES ('3', '平安人寿', null, null, '1');
 INSERT INTO `company` VALUES ('4', '太平洋人寿', null, null, '1');
 INSERT INTO `company` VALUES ('5', '生命人寿', null, null, '1');
@@ -45,6 +43,7 @@ INSERT INTO `company` VALUES ('11', '人保车险', null, null, '3');
 INSERT INTO `company` VALUES ('12', '中华联合', null, null, '3');
 INSERT INTO `company` VALUES ('13', '大地车险', null, null, '3');
 INSERT INTO `company` VALUES ('14', '永安车险', null, null, '3');
+INSERT INTO `company` VALUES ('16', '平安保险', '../../upload/151081501153165.jpg', '1', '2');
 
 -- ----------------------------
 -- Table structure for employee
@@ -78,11 +77,12 @@ CREATE TABLE `place` (
   `profit` varchar(255) DEFAULT NULL,
   `orders` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of place
 -- ----------------------------
+INSERT INTO `place` VALUES ('1', '北京', '10%', '1500', '3000', '200');
 
 -- ----------------------------
 -- Table structure for user
