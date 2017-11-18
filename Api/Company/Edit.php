@@ -14,7 +14,7 @@ if (!$conn) {
     $message = "连接失败";
 }
 
-fo
+$sql = "";
 
-echo json_encode($_POST, JSON_UNESCAPED_UNICODE);
+//echo json_encode($_POST, JSON_UNESCAPED_UNICODE);
 ?>
