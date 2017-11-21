@@ -127,7 +127,10 @@
                     dataType: 'json',
                     method: 'POST',
                     success: function (res) {
-
+                        $('#inputName').val(res.data[0].name);
+                        $('#selType').val(res.data[0].type);
+                        $('#selPlace').val(res.data[0].place);
+                        $('.preview-img').attr('src', res.data[0].logo);
                     }
                 });
             }
@@ -180,9 +183,7 @@
                         method: 'POST',
                         dataType: 'json',
                         success: function (res) {
-//                            if (res.success === "1") {
-//                                window.location.href = "index.html";
-//                            }
+//
                         }
                     });
                 }
