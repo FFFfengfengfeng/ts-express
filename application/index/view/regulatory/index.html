@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+    <div class="panel-heading text-right">
+        <span class="pull-left panel-title">银行管理</span>
+        <a href="{:url('regulatory/add')}" class="btn btn-default">
+            <span class="fa fa-plus-square"></span> 添加
+        </a>
+    </div>
+    <table class="table table-bordered">
+        <thead class="bg-default">
+        <tr>
+            <td>id</td>
+            <td>名称</td>
+            <td>电话</td>
+            <td>地址</td>
+            <td class="td-operation">待办业务</td>
+            <td class="td-operation">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach name="regulatory" item="i"}
+        <tr class="tr-content" data-id="{$i.id}">
+            <td>{$i.id}</td>
+            <td>{$i.name}</td>
+            <td>{$i.phone}</td>
+            <td>{$i.address}</td>
+            <td class="text-center td-operation">
+                <a href="" class="btn btn-default">
+                    <span class="fa fa-file-text-o"></span> {$i.business_num}项
+                </a>
+            </td>
+            <td class="text-center td-operation">
+                <a href="javascript:;" data-id="{$i.id}" data-url="{:url('regulatory/delete', ['id' => $i.id])}" class="btn btn-default btn-delete">
+                    <span class="fa fa-trash-o"></span> 删除
+                </a>
+                <a href="{:url('regulatory/edit', ['id' => $i.id])}" class="btn btn-default">
+                    <span class="fa fa-pencil"></span> 修改
+                </a>
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</div>

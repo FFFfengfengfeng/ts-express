@@ -1,0 +1,234 @@
+body,html{
+    height: 100%;
+    width: 100%;
+    font-family: 'Open Sans', Arial, sans-serif;
+    overflow-x: hidden;
+}
+a,
+a:active,
+a:focus,
+a:hover,
+a:visited{
+    text-decoration: none;
+    color: inherit;
+}
+.bg-default{
+    background-color: #f7f7f9;
+}
+.main{
+    height: 100%;
+    width: 100%;
+}
+.main-sidebar{
+    width: 200px;
+    height: 100%;
+    float: left;
+    background-color: #363A5C;
+    transition: all .25s;
+    color: #F8F8F8;
+}
+.main-sidebar.off{
+    width: 60px;
+}
+.main-sidebar .list-group{
+    border-radius: 0;
+}
+.main-sidebar .list-group-item:first-child,
+.main-sidebar .list-group-item:last-child{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.main-sidebar .list-group-item{
+    background-color: #363A5C;
+    border: 0;
+    cursor: pointer;
+    overflow: hidden;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 15px;
+    padding-left: 22px;
+    transition: all .25s;
+}
+.main-sidebar .panel{
+    background-color: #363A5C;
+    border: none;
+}
+.main-sidebar .list-group-item.active,
+.main-sidebar .list-group-item:hover{
+    background-color: #212338;
+}
+.main-sidebar .list-group-item.active a,
+.main-sidebar .list-group-item:hover a{
+    color: #FFFFFF;
+}
+.main-sidebar .list-group-item a{
+    transition: all .25s;
+    color: #8688A2;
+    display: block;
+}
+.main-sidebar .list-group-item a:active,
+.main-sidebar .list-group-item a:visited,
+.main-sidebar .list-group-item a:focus,
+.main-sidebar .list-group-item a:hover{
+    text-decoration: none;
+}
+.nav-sidebar-link{
+    height: 60px;
+    line-height: 60px;
+    padding: 0 15px;
+    padding-left: 22px;
+    transition: all .25s;
+    display: block;
+    color: #FFFFFF;
+    overflow: hidden;
+}
+.nav-sidebar-link:active,
+.nav-sidebar-link:visited,
+.nav-sidebar-link:focus,
+.nav-sidebar-link:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.main-logo{
+    height: 50px;
+    width: 100%;
+    background-color: #761c19;
+    line-height: 50px;
+    font-size: 18px;
+    padding-left: 17px;
+    overflow: hidden;
+}
+.main-body{
+    padding-left: 200px;
+    transition: all .25s;
+}
+.main-body .container-fluid{
+    height: 100%;
+}
+.main-body.off{
+    padding-left: 60px;
+}
+.main-content{
+    padding: 15px;
+    padding-top: 70px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.main-content .panel-title{
+    line-height: 34px;
+}
+.main-form{
+    width: 350px;
+    padding: 30px 0 0 50px;
+}
+.main-form .btn-group{
+    margin-top: 30px;
+}
+.main-form .btn-group .btn{
+    color: #FFF;
+}
+.main .navbar{
+    height: 50px;
+    border-radius: 0;
+    margin-bottom: 0;
+    position: fixed;
+    left: 200px;
+    right: 0;
+    top: 0;
+    transition: all .25s;
+}
+.main .navbar.off{
+    left: 60px;
+}
+.login{
+    width: 100%;
+    height: 100%;
+    background: url("../img/login_bg.jpg") no-repeat 100% 100%;
+    position: relative;
+}
+.login-box{
+    position: absolute;
+    width: 400px;
+    height: 350px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .4);
+    top: 200px;
+    right: 200px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+.login-heading{
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.login-box form{
+    padding: 30px;
+}
+.login-box input{
+    padding: 25px 10px;
+    background-color: rgba(0, 0, 0, .7);
+    color: #FFFFFF;
+}
+.login-box .form-group{
+    margin-bottom: 30px;
+}
+.login-box .btn{
+    font-size: 18px;
+}
+.toast{
+    padding: 10px 25px 10px 15px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    min-width: 300px;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    transition: all .25s;
+    transform: translate(120%);
+    opacity: 0;
+}
+.toast.in{
+    opacity: 1;
+
+}
+.toast.show{
+    transform: translate(0);
+}
+.toast .fa{
+    color: inherit;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
+.toast .fa:active,
+.toast .fa:hover,
+.toast .fa:focus,
+.toast .fa:visited{
+    text-decoration: none;
+}
+.toast p{
+    margin-bottom: 0;
+}
+.toast.error{
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+.toast.success{
+    background-color: #dff0d8;
+    border-color: #5cb85c;
+    color: #3c763d;
+}
+.td-operation{
+    width: 200px;
+}
+.td-operation .btn{
+    margin: 5px;
+}
+.pagination{
+    float: right;
+}

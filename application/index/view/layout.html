@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="__ROOT__/static/css/bootstrap.css">
+    <link rel="stylesheet" href="__ROOT__/static/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="__ROOT__/static/css/font-awesome.css">
+    <link rel="stylesheet" href="__ROOT__/static/css/main.css">
+</head>
+<body>
+    <div class="main">
+        <div class="main-sidebar bg-primary">
+            <div class="main-logo">
+                <a href="{:url('index/index')}">
+                    <span class="fa fa-ravelry"></span> Admin
+                </a>
+            </div>
+            <div class="nav-sidebar panel-group" id="navSidebar">
+                <div class="nav-sidebar-item panel">
+                    <a href="#panelSystem" class="nav-sidebar-link" data-toggle="collapse" data-parent="#navSidebar">
+                        <span class="fa fa-cogs"></span> 系统管理
+                    </a>
+                    <ul class="list-group collapse" id="panelSystem">
+                        <li class="list-group-item" id="navUser">
+                            <a href="{:url('user/index')}">
+                                <span class="fa fa-users"></span> 用户管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navShop">
+                            <a href="{:url('shop/index')}">
+                                <span class="fa fa-cubes"></span> 4S店管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navBank">
+                            <a href="{:url('bank/index')}">
+                                <span class="fa fa-bank"></span> 银行管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navRegulatory">
+                            <a href="{:url('regulatory/index')}">
+                                <span class="fa fa-sitemap"></span> 监管组管理
+                            </a>
+                        </li>
+                        <!--<li class="list-group-item" id="navSale">-->
+                            <!--<a href="{:url('sale/index')}">-->
+                                <!--<span class="fa fa-line-chart"></span> 销售公司管理-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+                <div class="nav-sidebar-item panel">
+                    <a href="#panelBusiness" class="nav-sidebar-link" data-toggle="collapse" data-parent="#navSidebar">
+                        <span class="fa fa-shopping-bag"></span> 业务管理
+                    </a>
+                    <ul class="list-group collapse" id="panelBusiness">
+                        <li class="list-group-item" id="navOrder">
+                            <a href="{:url('order/index')}">
+                                <span class="fa fa-calendar-check-o"></span> 订货计划管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navExamine">
+                            <a href="{:url('examine/index')}">
+                                <span class="fa fa-pencil-square-o"></span> 银行审核管理
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-sidebar-item panel">
+                    <a href="#panelCar" class="nav-sidebar-link" data-toggle="collapse" data-parent="#navSidebar">
+                        <span class="fa fa-exchange"></span> 接车发车管理
+                    </a>
+                    <ul class="list-group collapse" id="panelCar">
+                        <li class="list-group-item" id="navSend">
+                            <a href="{:url('send/index')}">
+                                <span class="fa fa-truck"></span> 发车管理
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navMeet">
+                            <a href="{:url('meet/index')}">
+                                <span class="fa fa-car"></span> 接车管理
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-sidebar-item panel">
+                    <a href="#panelCard" class="nav-sidebar-link" data-toggle="collapse" data-parent="#navSidebar">
+                        <span class="fa fa-drivers-license-o"></span> 车证管理
+                    </a>
+                    <ul class="list-group collapse" id="panelCard">
+                        <li class="list-group-item" id="navApply">
+                            <a href="{:url('apply/index')}">
+                                <span class="fa fa-edit"></span> 4S店放证申请
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navCheck">
+                            <a href="{:url('check/index')}">
+                                <span class="fa fa-folder-open"></span> 银行放证审核
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navGrant">
+                            <a href="{:url('grant/index')}">
+                                <span class="fa fa-send"></span> 监管组放证
+                            </a>
+                        </li>
+                        <li class="list-group-item" id="navReceive">
+                            <a href="{:url('receive/index')}">
+                                <span class="fa fa-calendar-check-o"></span> 4S店收证确认
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="main-body">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="javascript:;" class="navbar-brand navbar-expand-toggle">
+                            <span class="fa fa-bars"></span>
+                        </a>
+                        <span class="navbar-brand">后台管理系统</span>
+                    </div>
+                    <div class="navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="{:url('login/out')}">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="main-content">
+                {__CONTENT__}
+            </div>
+        </div>
+    </div>
+
+    <script src="__ROOT__/static/js/jquery-3.2.1.min.js"></script>
+    <script src="__ROOT__/static/js/bootstrap.js"></script>
+    <script src="__ROOT__/static/js/bootstrap-datetimepicker.js"></script>
+    <script src="__ROOT__/static/js/main.js"></script>
+    <script>
+        console.log('{$Request.controller}');
+        $(function () {
+            $('#nav{$Request.controller}').addClass('active');
+            $('#nav{$Request.controller}').parent().addClass('in');
+
+            $('.navbar-expand-toggle').on('click', function (e) {
+                $('.main-sidebar').toggleClass('off');
+                $('.main-body').toggleClass('off');
+                $('.main .navbar').toggleClass('off');
+            });
+        });
+    </script>
+</body>
+</html>

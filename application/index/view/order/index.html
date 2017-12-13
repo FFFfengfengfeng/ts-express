@@ -1,0 +1,74 @@
+<div>
+    <form class="main-form" id="addOrder">
+        <div class="form-group">
+            <label for="modal">车辆型号</label>
+            <input type="text" name="modal" class="form-control" id="modal" placeholder="请输入型号">
+        </div>
+        <div class="form-group">
+            <label for="carCode">产品代码</label>
+            <input type="text" name="car_code"  class="form-control" id="carCode" placeholder="请输入产品代码">
+        </div>
+        <div class="form-group">
+            <label for="carNum">数量</label>
+            <input type="text" name="car_num"  class="form-control" id="carNum" placeholder="请输入数量">
+        </div>
+        <div class="form-group">
+            <label for="carPrice">单价(万元)</label>
+            <input type="text" name="car_price"  class="form-control" id="carPrice" placeholder="请输入单价">
+        </div>
+        <div class="form-group">
+            <label for="carTotal">金额(万元)</label>
+            <input type="text" name="car_total"  class="form-control" id="carTotal" placeholder="请输入金额">
+        </div>
+        <div class="form-group">
+            <label for="remark">备注</label>
+            <input type="text" name="remark"  class="form-control" id="remark" placeholder="请输入备注">
+        </div>
+        <div class="form-group">
+            <label for="createTime">录入时间</label>
+            <input type="text" readonly name="create_time" data-date-format="yyyy-mm-dd hh:ii" class="form-control data-picker" id="createTime" placeholder="请选择录入时间">
+        </div>
+        <div class="form-group">
+            <label for="shop_id">4S店</label>
+            <select class="form-control" name="shop_id" id="shop_id">
+                {foreach name="shop" item="i"}
+                <option value="{$i.id}">{$i.shop_name}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="regulatory_id">监管组</label>
+            <select class="form-control" name="regulatory_id" id="regulatory_id">
+                {foreach name="regulatory" item="i"}
+                <option value="{$i.id}">{$i.name}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="bank_id">银行</label>
+            <select class="form-control" name="bank_id" id="bank_id">
+                {foreach name="bank" item="i"}
+                <option value="{$i.id}">{$i.name}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="state" value="0" class="form-control" id="state">
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="send_state" value="0" class="form-control" id="sendState">
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="apply_state" value="0" class="form-control" id="applyState">
+        </div>
+        <div class="btn-group pull-right">
+            <a href="{:url('order/index')}" class="btn btn-danger">
+                <span class="fa fa-undo"></span> 取消
+            </a>
+            <a href="javascript:;" data-url="{:url('order/add')}" data-redirect="{:url('examine/index')}" data-form="addOrder" class="btn btn-success btn-add">
+                <span class="fa fa-thumbs-up"></span> 确认
+            </a>
+        </div>
+    </form>
+
+</div>

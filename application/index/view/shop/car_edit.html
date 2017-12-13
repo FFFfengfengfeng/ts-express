@@ -1,0 +1,54 @@
+<div>
+    <form class="main-form" id="editCar">
+        <div class="form-group">
+            <label for="carModal">汽车型号</label>
+            <input type="text" value="{$data.modal}" name="modal" class="form-control" id="carModal" placeholder="请输入汽车型号">
+        </div>
+        <div class="form-group">
+            <label for="carCode">产品代码</label>
+            <input type="text" value="{$data.car_code}" name="car_code"  class="form-control" id="carCode" placeholder="请输入产品代码">
+        </div>
+        <div class="form-group">
+            <label for="carNum">数量</label>
+            <input type="text" value="{$data.car_num}" name="car_num"  class="form-control" id="carNum" placeholder="请输入数量">
+        </div>
+        <div class="form-group">
+            <label for="carPrice">单价</label>
+            <input type="text" value="{$data.car_price}" name="car_price"  class="form-control" id="carPrice" placeholder="请输入单价">
+        </div>
+        <div class="form-group">
+            <label for="createTime">录入时间</label>
+            <input type="text" value="{$data.create_time}" readonly name="create_time" data-date-format="yyyy-mm-dd hh:ii" class="form-control data-picker" id="createTime" placeholder="请选择录入时间">
+        </div>
+        <div class="form-group">
+            <label for="shopName">4S店铺</label>
+            <input type="text" readonly value="{$Request.param.shop_name}" name="shop_name" class="form-control" id="shopName">
+            <input type="text" value="{$Request.param.shop_id}" name="shop_id" class="form-control hidden" id="shop_id">
+        </div>
+        <div class="form-group">
+            <label for="regulatory_id">监管组</label>
+            <select class="form-control" name="regulatory_id" id="regulatory_id">
+                <option value="0">监管组1</option>
+                <option value="1">监管组2</option>
+                <option value="2">监管组3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="bank_id">银行</label>
+            <select class="form-control" name="bank_id" id="bank_id">
+                <option value="0">银行1</option>
+                <option value="1">银行2</option>
+                <option value="2">银行3</option>
+            </select>
+        </div>
+        <div class="btn-group pull-right">
+            <a href="{:url('shop/car_index', ['shop_id' => $Request.param.shop_id, 'shop_name' => $Request.param.shop_name])}" class="btn btn-danger">
+                <span class="fa fa-undo"></span> 取消
+            </a>
+            <a href="javascript:;" data-id="{$data.id}" data-url="{:url('shop/car_update')}" data-redirect="{:url('shop/car_index', ['shop_id' => $Request.param.shop_id, 'shop_name' => $Request.param.shop_name])}" data-form="editCar" class="btn btn-success btn-edit">
+                <span class="fa fa-thumbs-up"></span> 确认
+            </a>
+        </div>
+    </form>
+
+</div>

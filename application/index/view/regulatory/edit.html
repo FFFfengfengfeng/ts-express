@@ -1,0 +1,25 @@
+<div>
+    <form class="main-form" id="addRegulatory">
+        <div class="form-group">
+            <label for="regulatoryName">名称</label>
+            <input type="text" value="{$data.name}" name="name" class="form-control" id="regulatoryName" placeholder="请输入名称">
+        </div>
+        <div class="form-group">
+            <label for="regulatoryPhone">电话</label>
+            <input type="text" value="{$data.phone}" name="phone" class="form-control" id="regulatoryPhone" placeholder="请输入电话">
+        </div>
+        <div class="form-group">
+            <label for="regulatoryAddress">地址</label>
+            <input type="text" value="{$data.address}" name="address"  class="form-control" id="regulatoryAddress" placeholder="请输入地址">
+        </div>
+        <div class="btn-group pull-right">
+            <a href="{:url('regulatory/index')}" class="btn btn-danger">
+                <span class="fa fa-undo"></span> 取消
+            </a>
+            <a href="javascript:;" data-id="{$data.id}" data-url="{:url('regulatory/update')}" data-redirect="{:url('regulatory/index')}" data-form="addRegulatory" class="btn btn-success btn-edit">
+                <span class="fa fa-thumbs-up"></span> 确认
+            </a>
+        </div>
+    </form>
+
+</div>

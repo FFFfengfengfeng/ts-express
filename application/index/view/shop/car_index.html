@@ -1,0 +1,50 @@
+<div class="panel panel-default">
+    <div class="panel-heading text-right">
+        <span class="pull-left panel-title">{$Request.param.shop_name}汽车管理</span>
+        <a href="{:url('shop/index')}" class=" btn btn-default">
+            <span class="fa fa-reply"></span> 返回
+        </a>
+        <a href="{:url('shop/car_add', ['shop_id' => $Request.param.shop_id, 'shop_name' => $Request.param.shop_name])}" class=" btn btn-default">
+            <span class="fa fa-plus-square"></span> 添加
+        </a>
+    </div>
+    <table class="table table-bordered">
+        <thead class="bg-default">
+            <tr>
+                <td>id</td>
+                <td>汽车型号</td>
+                <td>产品代码</td>
+                <td>数量</td>
+                <td>单价(单位:万)</td>
+                <td>录入时间</td>
+                <td>4S店</td>
+                <td>监管组</td>
+                <td>银行</td>
+                <td class="td-operation">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+        {foreach name="car" item="i"}
+            <tr  class="tr-content" data-id="{$i.id}">
+                <td>{$i.id}</td>
+                <td>{$i.modal}</td>
+                <td>{$i.car_code}</td>
+                <td>{$i.car_num}</td>
+                <td>{$i.car_price}</td>
+                <td>{$i.create_time}</td>
+                <td>{$i.shop_name}</td>
+                <td>{$i.regulatory_name}</td>
+                <td>{$i.bank_name}</td>
+                <td class="text-center td-operation">
+                    <a href="javascript:;" data-id="{$i.id}" data-url="{:url('shop/car_delete')}" class="btn btn-default btn-delete">
+                        <span class="fa fa-trash-o"></span> 删除
+                    </a>
+                    <a href="{:url('shop/car_edit', ['shop_id' => $Request.param.shop_id, 'shop_name' => $Request.param.shop_name, 'id' => $i.id])}" class="btn btn-default">
+                        <span class="fa fa-pencil"></span> 修改
+                    </a>
+                </td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</div>
