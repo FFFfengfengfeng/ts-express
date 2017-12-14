@@ -1,151 +1,24 @@
-body,html{
-    height: 100%;
-    width: 100%;
-    font-family: 'Open Sans', Arial, sans-serif;
-    overflow-x: hidden;
+.navbar{
+    background-color: #393D49;
 }
-a,
-a:active,
-a:focus,
-a:hover,
-a:visited{
-    text-decoration: none;
-    color: inherit;
+.pull-right{
+    float: right;
 }
-.bg-default{
-    background-color: #f7f7f9;
-}
-.main{
-    height: 100%;
-    width: 100%;
-}
-.main-sidebar{
-    width: 200px;
-    height: 100%;
+.pull-left{
     float: left;
-    background-color: #363A5C;
-    transition: all .25s;
-    color: #F8F8F8;
 }
-.main-sidebar.off{
-    width: 60px;
+.clearfix:after{
+    display: table;
+    content: ' ';
+    clear: both;
 }
-.main-sidebar .list-group{
-    border-radius: 0;
-}
-.main-sidebar .list-group-item:first-child,
-.main-sidebar .list-group-item:last-child{
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-.main-sidebar .list-group-item{
-    background-color: #363A5C;
-    border: 0;
-    cursor: pointer;
-    overflow: hidden;
-    height: 60px;
-    line-height: 60px;
-    padding: 0 15px;
-    padding-left: 22px;
-    transition: all .25s;
-}
-.main-sidebar .panel{
-    background-color: #363A5C;
-    border: none;
-}
-.main-sidebar .list-group-item.active,
-.main-sidebar .list-group-item:hover{
-    background-color: #212338;
-}
-.main-sidebar .list-group-item.active a,
-.main-sidebar .list-group-item:hover a{
-    color: #FFFFFF;
-}
-.main-sidebar .list-group-item a{
-    transition: all .25s;
-    color: #8688A2;
-    display: block;
-}
-.main-sidebar .list-group-item a:active,
-.main-sidebar .list-group-item a:visited,
-.main-sidebar .list-group-item a:focus,
-.main-sidebar .list-group-item a:hover{
-    text-decoration: none;
-}
-.nav-sidebar-link{
-    height: 60px;
-    line-height: 60px;
-    padding: 0 15px;
-    padding-left: 22px;
-    transition: all .25s;
-    display: block;
-    color: #FFFFFF;
-    overflow: hidden;
-}
-.nav-sidebar-link:active,
-.nav-sidebar-link:visited,
-.nav-sidebar-link:focus,
-.nav-sidebar-link:hover{
-    text-decoration: none;
-    color: #FFFFFF;
-}
-.main-logo{
-    height: 50px;
-    width: 100%;
-    background-color: #761c19;
-    line-height: 50px;
-    font-size: 18px;
-    padding-left: 17px;
-    overflow: hidden;
-}
-.main-body{
-    padding-left: 200px;
-    transition: all .25s;
-}
-.main-body .container-fluid{
-    height: 100%;
-}
-.main-body.off{
-    padding-left: 60px;
-}
-.main-content{
-    padding: 15px;
-    padding-top: 70px;
-    height: 100%;
-    box-sizing: border-box;
-}
-.main-content .panel-title{
-    line-height: 34px;
-}
-.main-form{
-    width: 350px;
-    padding: 30px 0 0 50px;
-}
-.main-form .btn-group{
-    margin-top: 30px;
-}
-.main-form .btn-group .btn{
-    color: #FFF;
-}
-.main .navbar{
-    height: 50px;
-    border-radius: 0;
-    margin-bottom: 0;
-    position: fixed;
-    left: 200px;
-    right: 0;
-    top: 0;
-    transition: all .25s;
-}
-.main .navbar.off{
-    left: 60px;
+.text-center{
+    text-align: center;
 }
 .login{
     width: 100%;
     height: 100%;
-    background: url("../img/login_bg.jpg") no-repeat 100% 100%;
+    background: url("../images/login_bg.jpg") no-repeat 100% 100%;
     position: relative;
 }
 .login-box{
@@ -223,12 +96,122 @@ a:visited{
     border-color: #5cb85c;
     color: #3c763d;
 }
-.td-operation{
-    width: 200px;
+.f-banner{
+    height: 280px;
+    padding: 40px 0;
 }
-.td-operation .btn{
-    margin: 5px;
+.f-main-box{
+    margin-top: 25px;
 }
-.pagination{
-    float: right;
+.f-intro-box{
+    padding-right: 160px;
+    padding-top: 46px;
+}
+.f-intro-box .f-intro-title{
+    font-size: 48px;
+    font-weight: 700;
+    display: inline-block;
+    width: 160px;
+}
+.f-intro-box .f-intro-content{
+    line-height: 30px;
+}
+.f-carousel{
+    width: 665px;
+}
+.f-prod-type-bar{
+    border: 1px solid #E6E6E6;
+    line-height: 52px;
+    padding: 0 20px;
+}
+.f-prod-type-bar span{
+    margin-right: 20px;
+}
+.f-prod-type-bar a{
+    padding: 5px 10px;
+}
+.f-prod-type-bar a.active{
+    background-color: #EA544A;
+    border-radius: 4px;
+    color: #FFF;
+}
+.f-prod-info-box{
+    padding: 20px 0;
+}
+.f-prod-info-box h3{
+    font-size: 18px;
+    font-weight: bold;
+    color: #5e5e5e;
+    margin-bottom: 20px;
+}
+.f-main-left{
+    padding-right: 10px;
+}
+.f-main-right{
+    padding-left: 50px;
+}
+.f-main-right-title{
+    font-size: 18px;
+    color: #5e5e5e;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.f-carousel-box-left{
+    width: 400px;
+    height: 100%;
+    background-color: #FFF;
+    padding: 20px 40px 0 40px;
+    box-sizing: border-box;
+}
+.f-carousel-box-left h3{
+    color: #5E5E5E;
+    font-size: 40px;
+    font-weight: 700;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.f-carousel-box-left h4{
+    color: #5E5E5E;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.f-carousel-box-left p{
+    color: #5E5E5E;
+    font-size: 14px;
+}
+.f-carousel-box-right{
+    width: 265px;
+    height: 100%;
+    text-align: center;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+.f-carousel-box-right h2{
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #EA544A;
+}
+.f-carousel-box-right .layui-btn{
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 64px 12px;
+    height: auto;
+    line-height: normal;
+}
+.f-carousel-box-right .f-prod-amount{
+    margin-bottom: 20px;
+}
+.f-prod-amount-box{
+    padding: 20px 0 10px 0;
+}
+.f-prod-amount{
+    color: #EA544A;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.f-prod-amount span{
+    font-size: 40px;
 }

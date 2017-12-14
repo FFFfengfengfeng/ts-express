@@ -146,7 +146,7 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-        '__ROOT__'  => 'http://localhost:8082/QiChe/public',
+        '__ROOT__'  => 'http://localhost:8082/Sale/public',
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
@@ -240,8 +240,9 @@ return [
 
     //分页配置
     'paginate'               => [
-        'type'      => 'bootstrap',
+        'type'      => 'Layui',
         'var_page'  => 'page',
         'list_rows' => 15,
+        'newstyle'  => true,
     ],
 ];

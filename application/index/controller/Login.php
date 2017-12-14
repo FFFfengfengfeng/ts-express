@@ -21,7 +21,7 @@ class Login extends Controller
     public function login()
     {
         $map['name'] = $_POST["user_name"];
-        $result = Db::table("admin") -> where($map) -> select();
+        $result = Db::table("user") -> where($map) -> select();
         $success = "0";
         $message = "获取失败";
         $data = null;
@@ -33,7 +33,7 @@ class Login extends Controller
             $data = $result[0]["id"];
             $success = "1";
             $message = "获取成功";
-//            Cookie::set('uid', $result[0]["id"], 3600);
+            Cookie::set('uid', $result[0]["id"], 7200);
         }
         $json = array("success" => $success, "message" => $message, "data" => $data);
 
