@@ -10,22 +10,20 @@
             <div class="layui-col-lg7">
                 <div class="layui-carousel f-carousel" id="">
                     <div carousel-item>
+                        {foreach name="carousel" item="i"}
                         <div class="f-carousel-box clearfix">
                             <div class="f-carousel-box-left pull-left">
-                                <h3>安心国内</h3>
-                                <h4>意外身故、伤残</h4>
-                                <p><i class="layui-icon">&#xe658;</i> 意外身故、伤残</p>
+                                <h3>{$i.title}</h3>
+                                <h4>{$i.title_2}</h4>
+                                <p><i class="layui-icon">&#xe658;</i> {$i.name}</p>
                             </div>
                             <div class="f-carousel-box-right layui-bg-gray pull-left">
-                                <h2>美亚财产保险有限公司提供</h2>
-                                <p class="f-prod-amount">￥<span>10.00</span>元起</p>
+                                <h2>{$i.company_name}提供</h2>
+                                <p class="f-prod-amount">￥<span>{$i.amount}</span>元起</p>
                                 <a href="" class="layui-btn layui-btn-danger">立即购买</a>
                             </div>
                         </div>
-                        <div class="f-carousel-box clearfix">
-                            <div class="f-carousel-box-left pull-left">33</div>
-                            <div class="f-carousel-box-right layui-bg-gray pull-left">44</div>
-                        </div>
+                        {/foreach}
                     </div>
                 </div>
             </div>
@@ -37,42 +35,34 @@
         <div class="layui-col-lg8 f-main-left">
             <div class="f-prod-type-bar">
                 <span>类型:</span>
-                <a href="javascript:;" class="active">全部</a>
+                <a href="{:url('life/index')}"  class="{if condition='$Request.param.type eq ""'}active{/if}">全部</a>
+                <a href="{:url('life/index', ['type' => '0'])}" class="{if condition='$Request.param.type eq "0"'}active{/if}">养老储蓄</a>
+                <a href="{:url('life/index', ['type' => '1'])}" class="{if condition='$Request.param.type eq "1"'}active{/if}">定期寿险</a>
             </div>
             <table class="layui-table" lay-skin="line">
                 <tbody>
+                {foreach name="life" item="i"}
                 <tr>
                     <td>
                         <div class="f-prod-info-box">
-                            <h3><a href="">泰康全年综合意外医疗险</a></h3>
-                            <p>意外身故、伤残</p>
+                            <h3><a href="">{$i.name}</a></h3>
+                            <p>{$i.title_2}</p>
                         </div>
                     </td>
-                    <td>30万元</td>
+                    <td>保额{$i.limit}万元</td>
                     <td class="text-center">
                         <div class="layui-bg-gray f-prod-amount-box">
-                            <p class="f-prod-amount">￥<span>10.00</span>元起</p>
+                            <p class="f-prod-amount">￥<span>{$i.amount}</span></p>
                             <a href="" class="layui-btn layui-btn-danger">立即购买</a>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="f-prod-info-box">
-                            <h3><a href="">泰康全年综合意外医疗险</a></h3>
-                            <p>意外身故、伤残</p>
-                        </div>
-                    </td>
-                    <td>30万元</td>
-                    <td class="text-center">
-                        <div class="layui-bg-gray f-prod-amount-box">
-                            <p class="f-prod-amount">￥<span>10.00</span>元起</p>
-                            <a href="" class="layui-btn layui-btn-danger">立即购买</a>
-                        </div>
-                    </td>
-                </tr>
+                {/foreach}
                 </tbody>
             </table>
+            <div class="f-page">
+                {$page}
+            </div>
         </div>
         <div class="layui-col-lg4 f-main-right">
             <h3 class="f-main-right-title">购买流程</h3>

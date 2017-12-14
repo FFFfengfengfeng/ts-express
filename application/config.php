@@ -243,6 +243,5 @@ return [
         'type'      => 'Layui',
         'var_page'  => 'page',
         'list_rows' => 15,
-        'newstyle'  => true,
     ],
 ];

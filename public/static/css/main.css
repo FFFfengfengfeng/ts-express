@@ -102,6 +102,7 @@
 }
 .f-main-box{
     margin-top: 25px;
+    padding-bottom: 25px;
 }
 .f-intro-box{
     padding-right: 160px;
@@ -214,4 +215,22 @@
 }
 .f-prod-amount span{
     font-size: 40px;
+}
+.f-page{
+    text-align: right;
+}
+.f-page a,
+.f-page span{
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    border: 1px solid #C9C9C9;
+    background-color: #fff;
+    color: #555;
+    display: inline-block;
+    margin-left: 5px;
+}
+.f-page .layui-laypage-curr{
+    background-color: #009688;
+    color: #fff;
 }

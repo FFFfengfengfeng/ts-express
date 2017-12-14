@@ -29,16 +29,21 @@ class Base extends Controller
      * */
     public function getGoods($cate_id = "", $company_id = "", $type = "")
     {
-        $map = [
-            "cate_id" => $cate_id,
-            "company_id" => $company_id,
-            "type" => $type,
-        ];
-        $ = Db::table("goods") -> where($map) -> paginate();
-        $page   = $result -> render();
+        $map = [];
 
-        $
+        if (!($cate_id == "")) {
+            $map["cate_id"] = $cate_id;
+        }
+        if (!($company_id == "")) {
+            $map["company_id"] = $company_id;
+        }
+        if (!($type == "")) {
+            $map["type"] = $type;
+        }
 
-        return $result;
+        $data = Db::table("goods") -> where($map) -> paginate(10);
+        $page = $data -> render();
+
+        return array("data" => $data, "page" => $page);
     }
 }

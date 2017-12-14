@@ -14,14 +14,13 @@
                 <li class="layui-nav-item"  id="Nav_Accident"><a href="{:url('accident/index')}">意外</a></li>
                 <li class="layui-nav-item"  id="Nav_Travel"><a href="{:url('travel/index')}">旅行</a></li>
                 <li class="layui-nav-item"  id="Nav_Health"><a href="{:url('health/index')}">健康</a></li>
-                <li class="layui-nav-item"  id="Nav_Assets"><a href="{:url('assets/index')}">财产</a></li>
+                <!--<li class="layui-nav-item"  id="Nav_Assets"><a href="{:url('assets/index')}">财产</a></li>-->
                 <li class="layui-nav-item"  id="Nav_Life"><a href="{:url('life/index')}">人寿</a></li>
                 <li class="layui-nav-item pull-right">
                     <a href="javascript:;">个人中心</a>
                     <dl class="layui-nav-child"> <!-- 二级菜单 -->
                         <dd><a href="">我的保单</a></dd>
-                        <dd><a href="">后台模版</a></dd>
-                        <dd><a href="">电商平台</a></dd>
+                        <dd><a href="">我的账户</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -32,6 +31,7 @@
     <script src="__ROOT__/static/js/jquery-3.2.1.min.js"></script>
     <script src="__ROOT__/static/layui.all.js"></script>
     <script>
+        console.log('');
         $('#Nav_{$Request.controller}').addClass('layui-this');
         //注意：导航 依赖 element 模块，否则无法进行功能性操作
         layui.use('element', function(){
