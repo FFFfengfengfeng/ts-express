@@ -13,6 +13,14 @@ class Mine extends Base
 {
     public function index()
     {
-
+        return $this -> fetch();
+    }
+    public function order()
+    {
+        return $this -> fetch();
+    }
+    public function message()
+    {
+        return $this -> fetch();
     }
 }

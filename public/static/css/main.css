@@ -103,6 +103,7 @@
 .f-main-box{
     margin-top: 25px;
     padding-bottom: 25px;
+    min-height: 800px;
 }
 .f-intro-box{
     padding-right: 160px;
@@ -233,4 +234,101 @@
 .f-page .layui-laypage-curr{
     background-color: #009688;
     color: #fff;
+}
+.f-nav-tree{
+    width: 100%;
+    color: #393D49;
+}
+.f-header-box{
+    border: 1px solid #EEE;
+}
+.f-slide-main{
+    padding-left: 30px;
+}
+.f-panel{
+    border: 1px solid #EEE;
+}
+.f-header-box{
+    padding: 30px;
+    text-align: center;
+}
+.f-header-box img{
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.f-panel{
+    padding: 30px;
+}
+.f-panel-header{
+    font-size: 18px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #EEE;
+}
+.f-goods-box{
+    border: 1px solid #EEE;
+    margin-top: 30px;
+    background-color: #FFF;
+    position: relative;
+}
+.f-goods-pic{
+    width: 100%;
+    height: 350px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.f-goods-pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.f-goods-info{
+    padding: 10px 30px 10px 10px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.f-goods-info h3{
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 20px;
+}
+.f-goods-info p{
+    color: #a5a5a5;
+}
+.f-goods-tips{
+    padding-top: 20px;
+
+}
+.f-goods-label{
+    color: #a5a5a5;
+    margin-right: 20px;
+}
+.f-goods-promt{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 2px solid #ea544a;
+    min-width: 68px;
+    font-size: 12px;
+}
+.f-company-info{
+    margin-top: 30px;
+    padding: 20px;
+    color: #a5a5a5;
+    font-size: 12px;
+}
+.f-goods-buy{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 30px;
+    background-color: #ea544a;
+    text-align: center;
+    color: #FFF;
+    position: absolute;
+    bottom: -128px;
 }

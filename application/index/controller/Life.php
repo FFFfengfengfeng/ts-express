@@ -50,4 +50,12 @@ class Life extends Base
 
         return $this -> fetch();
     }
+    public function detail()
+    {
+        $goods_id = $_REQUEST["goods_id"];
+
+
+
+        return $this -> fetch();
+    }
 }

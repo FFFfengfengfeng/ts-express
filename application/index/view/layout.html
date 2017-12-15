@@ -16,11 +16,12 @@
                 <li class="layui-nav-item"  id="Nav_Health"><a href="{:url('health/index')}">健康</a></li>
                 <!--<li class="layui-nav-item"  id="Nav_Assets"><a href="{:url('assets/index')}">财产</a></li>-->
                 <li class="layui-nav-item"  id="Nav_Life"><a href="{:url('life/index')}">人寿</a></li>
-                <li class="layui-nav-item pull-right">
-                    <a href="javascript:;">个人中心</a>
+                <li class="layui-nav-item pull-right" id="Nav_Mine">
+                    <a href="{:url('mine/index')}">个人中心</a>
                     <dl class="layui-nav-child"> <!-- 二级菜单 -->
-                        <dd><a href="">我的保单</a></dd>
-                        <dd><a href="">我的账户</a></dd>
+                        <dd><a href="{:url('mine/index')}">我的保单</a></dd>
+                        <dd><a href="{:url('mine/index')}">我的保单</a></dd>
+                        <dd><a href="{:url('mine/index')}">消息动态</a></dd>
                     </dl>
                 </li>
             </ul>
