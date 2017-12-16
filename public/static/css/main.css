@@ -332,3 +332,7 @@
     position: absolute;
     bottom: -128px;
 }
+.f-goods-buy:hover{
+    background-color: #EA2817;
+    color: #FFF;
+}

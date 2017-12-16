@@ -10,7 +10,7 @@
     <div class="navbar">
         <div class="layui-main">
             <ul class="layui-nav" lay-filter="">
-                <li class="layui-nav-item"  id="Nav_Car"><a href="{:url('car/index')}">车险</a></li>
+                <!--<li class="layui-nav-item"  id="Nav_Car"><a href="{:url('car/index')}">车险</a></li>-->
                 <li class="layui-nav-item"  id="Nav_Accident"><a href="{:url('accident/index')}">意外</a></li>
                 <li class="layui-nav-item"  id="Nav_Travel"><a href="{:url('travel/index')}">旅行</a></li>
                 <li class="layui-nav-item"  id="Nav_Health"><a href="{:url('health/index')}">健康</a></li>
@@ -19,9 +19,8 @@
                 <li class="layui-nav-item pull-right" id="Nav_Mine">
                     <a href="{:url('mine/index')}">个人中心</a>
                     <dl class="layui-nav-child"> <!-- 二级菜单 -->
-                        <dd><a href="{:url('mine/index')}">我的保单</a></dd>
-                        <dd><a href="{:url('mine/index')}">我的保单</a></dd>
-                        <dd><a href="{:url('mine/index')}">消息动态</a></dd>
+                        <dd><a href="{:url('mine/index')}">我的账户</a></dd>
+                        <dd><a href="{:url('mine/order')}">我的保单</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -48,6 +47,23 @@
                 //,anim: 'updown' //切换动画方式
             });
         });
+        layui.use('layer', function () {
+            $('.f-goods-buy').on('click', function () {
+                var url = $(this).attr('data-url');
+                $.ajax({
+                    url: url,
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res.success === "1") {
+                            layer.alert(res.message);
+                        } else {
+                            layer.alert(res.message);
+                        }
+                    }
+                })
+            })
+        });
+
     </script>
 </body>
 </html>

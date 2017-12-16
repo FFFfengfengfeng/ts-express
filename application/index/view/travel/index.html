@@ -20,7 +20,7 @@
                             <div class="f-carousel-box-right layui-bg-gray pull-left">
                                 <h2>{$i.company_name}提供</h2>
                                 <p class="f-prod-amount">￥<span>{$i.amount}</span>元起</p>
-                                <a href="" class="layui-btn layui-btn-danger">立即购买</a>
+                                <a href="{:url('travel/detail', ['goods_id' => $i.id])}" class="layui-btn layui-btn-danger">立即购买</a>
                             </div>
                         </div>
                         {/foreach}
@@ -53,7 +53,7 @@
                     <td class="text-center">
                         <div class="layui-bg-gray f-prod-amount-box">
                             <p class="f-prod-amount">￥<span>{$i.amount}</span></p>
-                            <a href="" class="layui-btn layui-btn-danger">立即购买</a>
+                            <a href="{:url('travel/detail', ['goods_id' => $i.id])}" class="layui-btn layui-btn-danger">立即购买</a>
                         </div>
                     </td>
                 </tr>

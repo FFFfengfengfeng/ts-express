@@ -15,4 +15,5 @@ class Assets extends Base
     {
         return $this -> fetch();
     }
+
 }

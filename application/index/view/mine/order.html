@@ -8,7 +8,6 @@
             <ul class="layui-nav layui-nav-tree f-nav-tree" lay-filter="test">
                 <li class="layui-nav-item"><a href="{:url('mine/index')}">我的账户</a></li>
                 <li class="layui-nav-item layui-this"><a href="{:url('mine/order')}">我的保单</a></li>
-                <li class="layui-nav-item"><a href="{:url('mine/message')}">消息动态</a></li>
             </ul>
         </div>
         <div class="layui-col-lg10 f-slide-main">
@@ -28,20 +27,23 @@
                             <th>产品</th>
                             <th>分类</th>
                             <th>公司</th>
-                            <th>保额</th>
+                            <th>保额(万元)</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>11</td>
-                            <td>22</td>
-                            <td>33</td>
-                            <td>44</td>
-                            <td>44</td>
-                            <td>44</td>
-                        </tr>
+                            {foreach name='order' item='i'}
+                                <tr>
+                                    <td>{$i.id}</td>
+                                    <td>{$i.order_num}</td>
+                                    <td>{$i.goods_name}</td>
+                                    <td>{$i.cate_name}</td>
+                                    <td>{$i.company_name}</td>
+                                    <td>{$i.limit}</td>
+                                </tr>
+                            {/foreach}
                         </tbody>
                     </table>
+                    {$page}
                 </div>
             </div>
         </div>

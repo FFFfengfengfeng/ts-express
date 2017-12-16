@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : FFF
+Source Server         : project
 Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : sale
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-15 18:19:51
+Date: 2017-12-17 00:01:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -128,6 +128,31 @@ INSERT INTO `goods` VALUES ('36', '“年年领”终身养老金', '1', '5', '0
 INSERT INTO `goods` VALUES ('37', '泰康定期寿险', '2', '5', '1', '定期寿险', '一年期定期寿险，留爱不留债，用爱守护您的家人！', '72.00', '100', '');
 
 -- ----------------------------
+-- Table structure for order
+-- ----------------------------
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_num` varchar(255) NOT NULL,
+  `goods_name` varchar(255) NOT NULL,
+  `cate_name` varchar(255) NOT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `limit` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of order
+-- ----------------------------
+INSERT INTO `order` VALUES ('1', 'AE1513438047', '“月月领”终身年金', '财产', '国华保险有限公司', '100', '1');
+INSERT INTO `order` VALUES ('8', 'AE1513438657', '“月月领”终身年金', '财产', '国华保险有限公司', '100', '1');
+INSERT INTO `order` VALUES ('9', 'AE1513438857', '“月月领”终身年金', '财产', '国华保险有限公司', '100', '1');
+INSERT INTO `order` VALUES ('10', 'AE1513439672', '泰康全年综合意外医疗险', '车险', '泰康保险有限公司', '30', '1');
+INSERT INTO `order` VALUES ('11', 'AE1513439875', '境内自驾游保障 ', '意外', '德华安顾', '10', '1');
+INSERT INTO `order` VALUES ('12', 'AE1513439983', '保终身重疾险（可分期）', '旅行', '国华保险有限公司', '10', '1');
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -142,4 +167,4 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '123456', 'abczzz', '100000.00');
+INSERT INTO `user` VALUES ('1', '123456', 'abczzz', '96345.43');
