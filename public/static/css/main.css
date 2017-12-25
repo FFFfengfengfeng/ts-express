@@ -18,27 +18,29 @@
 .login{
     width: 100%;
     height: 100%;
-    background: url("../images/login_bg.jpg") no-repeat 100% 100%;
+    background: url("../images/login_bg.jpg") no-repeat;
+    background-size: cover;
     position: relative;
+    overflow: hidden;
 }
 .login-box{
-    position: absolute;
-    width: 400px;
-    height: 350px;
-    border-radius: 10px;
+    width: 350px;
     background-color: rgba(0, 0, 0, .4);
-    top: 200px;
-    right: 200px;
+    margin: auto;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 20px;
 }
 .login-heading{
     font-size: 20px;
     text-align: center;
     color: #FFFFFF;
+    margin: 150px 0 50px 0;
 }
-.login-box form{
-    padding: 30px;
+.login-box .login-btn{
+    text-align: right;
+}
+.to-register{
+    color: #FFF;
 }
 .login-box input{
     padding: 25px 10px;
