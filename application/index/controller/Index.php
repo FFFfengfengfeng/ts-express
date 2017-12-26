@@ -14,6 +14,6 @@ class Index extends Base
 {
     public function index()
     {
-        return $this -> redirect('car/index');
+        return $this -> redirect('accident/index');
     }
 }
