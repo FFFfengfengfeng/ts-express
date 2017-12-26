@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : project
+Source Server         : FFF
 Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : sale
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-18 21:52:04
+Date: 2017-12-26 14:41:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `cate`;
 CREATE TABLE `cate` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
@@ -41,8 +41,8 @@ INSERT INTO `cate` VALUES ('6', '人寿');
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `intro` text NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `intro` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
@@ -74,15 +74,15 @@ INSERT INTO `company` VALUES ('18', '新华人寿保险股份', '');
 DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `company_id` int(11) NOT NULL,
-  `cate_id` int(11) NOT NULL,
-  `type` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `title_2` varchar(255) NOT NULL,
-  `amount` varchar(255) NOT NULL,
-  `limit` varchar(255) NOT NULL,
-  `goods_pic` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  `cate_id` int(11) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `title_2` varchar(255) DEFAULT NULL,
+  `amount` varchar(255) DEFAULT NULL,
+  `limit` varchar(255) DEFAULT NULL,
+  `goods_pic` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
@@ -133,12 +133,12 @@ INSERT INTO `goods` VALUES ('37', '泰康定期寿险', '2', '5', '1', '定期�
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_num` varchar(255) NOT NULL,
-  `goods_name` varchar(255) NOT NULL,
-  `cate_name` varchar(255) NOT NULL,
-  `company_name` varchar(255) NOT NULL,
-  `limit` varchar(255) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `order_num` varchar(255) DEFAULT NULL,
+  `goods_name` varchar(255) DEFAULT NULL,
+  `cate_name` varchar(255) DEFAULT NULL,
+  `company_name` varchar(255) DEFAULT NULL,
+  `limit` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
@@ -159,12 +159,14 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `password` varchar(255) DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `wealth` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `wealth` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '123456', 'abczzz', '96345.43');
+INSERT INTO `user` VALUES ('2', '123456', '小明', '100000');
+INSERT INTO `user` VALUES ('3', '123456', '小红', '100000');

@@ -40,9 +40,37 @@ class Login extends Controller
         return json($json);
 
     }
-    public function out() {
+    public function out()
+    {
         Cookie::delete("uid");
 
         $this -> redirect('index');
+    }
+    public function register()
+    {
+        $success = "0";
+        $message = "注册失败";
+
+        $name     = $_POST["user_name"];
+        $password = $_POST["user_password"];
+        $resultName = Db::table("user") -> where("name", "=", $name) -> select();
+
+        if (!empty($resultName)) {
+            $message = "改用户名已存在!";
+        } else {
+            $result = Db::table("user") -> insert([
+                "name"     => $name,
+                "password" => $password,
+                "wealth"   => '100000'
+            ]);
+            if ($result) {
+                $message = "注册成功,请登录";
+                $success = "1";
+            }
+        }
+
+        $json = array("success" => $success, "message" => $message);
+
+        return json($json);
     }
 }

@@ -53,50 +53,13 @@
 .login-box .btn{
     font-size: 18px;
 }
-.toast{
-    padding: 10px 25px 10px 15px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    min-width: 300px;
-    border-radius: 4px;
-    font-weight: bold;
-    border: 1px solid transparent;
-    transition: all .25s;
-    transform: translate(120%);
-    opacity: 0;
+.login-footer{
+    margin-top: 20px;
+    text-align: center;
 }
-.toast.in{
-    opacity: 1;
-
-}
-.toast.show{
-    transform: translate(0);
-}
-.toast .fa{
-    color: inherit;
-    position: absolute;
-    right: 10px;
-    top: 13px;
-}
-.toast .fa:active,
-.toast .fa:hover,
-.toast .fa:focus,
-.toast .fa:visited{
-    text-decoration: none;
-}
-.toast p{
-    margin-bottom: 0;
-}
-.toast.error{
-    background-color: #f2dede;
-    border-color: #ebccd1;
-    color: #a94442;
-}
-.toast.success{
-    background-color: #dff0d8;
-    border-color: #5cb85c;
-    color: #3c763d;
+.to-register:hover{
+    color: #CCC;
+    text-decoration: underline;
 }
 .f-banner{
     height: 280px;

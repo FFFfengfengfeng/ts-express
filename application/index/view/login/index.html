@@ -9,12 +9,15 @@
         body,html{
             height: 100%;
         }
+        #Register{
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="login">
         <p class="login-heading"><i class="layui-icon" style="font-size: 46px; color: #FFF;">&#xe756;</i>保险网销系统</p>
-        <div class="login-box">
+        <div class="login-box" id="Login">
             <p style="font-weight: 300;margin-bottom: 25px;color: #fff;margin-left: 0; font-size: 24px;">Login</p>
             <form>
                 <div class="layui-form-item">
@@ -28,13 +31,38 @@
                 </div>
             </form>
             <div class="login-footer">
-                <a href="" class="to-register">注册帐号</a>
+                <a href="javascript:;" class="to-register" id="To_Register">注册帐号</a>
+            </div>
+        </div>
+        <div class="login-box" id="Register">
+            <p style="font-weight: 300;margin-bottom: 25px;color: #fff;margin-left: 0; font-size: 24px;">Register</p>
+            <form>
+                <div class="layui-form-item">
+                    <input type="text" name="user_name" required lay-verify="required" id="r_name" placeholder="输入姓名" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" name="user_password" required lay-verify="required" id="r_password" placeholder="输入密码" class="layui-input">
+                </div>
+                <div class="login-btn">
+                    <button class="layui-btn login-btn" lay-submit lay-filter="formDemo" id="submit_regiser">确定</button>
+                </div>
+            </form>
+            <div class="login-footer">
+                <a href="javascript:;" class="to-register" id="To_Login">已帐号,返回登录</a>
             </div>
         </div>
     </div>
     <script src="__ROOT__/static/js/jquery-3.2.1.min.js"></script>
-    <script src="__ROOT__/static/js/main.js"></script>
+    <script src="__ROOT__/static/layui.all.js"></script>
     <script>
+        $("#To_Register").on('click', function (e) {
+            $('#Register').show();
+            $('#Login').hide();
+        });
+        $("#To_Login").on('click', function (e) {
+            $('#Register').hide();
+            $('#Login').show();
+        });
         function isEmpty(str) {
             return (str === '') ? true : false;
         }
@@ -58,23 +86,40 @@
                         if (res.success === '1') {
                             window.location.href = "{:url('/index')}";
                         } else {
-                            $.toast({
-                                type: 'error',
-                                message: res.message
-                            });
+                            layer.alert(res.message);
                         }
                     }
                 });
             } else if (isEmpty(user_name)) {
-                $.toast({
-                    type: 'error',
-                    message: '请输入姓名'
-                });
+                layer.alert('请输入姓名');
             } else {
-                $.toast({
-                    type: 'error',
-                    message: '请输入密码'
+                layer.alert('请输入密码');
+            }
+        })
+        $('#submit_regiser').on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var user_name     = $('#r_name').val(),
+                user_password = $('#r_password').val();
+
+            if (!isEmpty(user_name) && !isEmpty(user_password)) {
+                $.ajax({
+                    url: "{:url('login/register')}",
+                    data: {
+                        user_name    : user_name,
+                        user_password: user_password,
+                    },
+                    dataType: 'json',
+                    method: 'post',
+                    success: function (res) {
+                        layer.alert(res.message);
+                    }
                 });
+            } else if (isEmpty(user_name)) {
+                layer.alert('请输入姓名');
+            } else {
+                layer.alert('请输入密码');
             }
         })
     </script>
