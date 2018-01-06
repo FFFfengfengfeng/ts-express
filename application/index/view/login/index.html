@@ -36,12 +36,30 @@
         </div>
         <div class="login-box" id="Register">
             <p style="font-weight: 300;margin-bottom: 25px;color: #fff;margin-left: 0; font-size: 24px;">Register</p>
-            <form>
+            <form  class="layui-form">
                 <div class="layui-form-item">
                     <input type="text" name="user_name" required lay-verify="required" id="r_name" placeholder="输入姓名" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
+                    <div class="layui-block">
+                        <input type="radio" name="sex" value="男" title="男">
+                        <input type="radio" name="sex" value="女" title="女" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <input type="text" name="" class="layui-input" placeholder="年龄">
+                </div>
+                <div class="layui-form-item">
+                    <input type="text" class="layui-input" id="test1" placeholder="出生日期">
+                </div>
+                <div class="layui-form-item">
+                    <input type="number" class="layui-input" placeholder="手机号">
+                </div>
+                <div class="layui-form-item">
                     <input type="password" name="user_password" required lay-verify="required" id="r_password" placeholder="输入密码" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" placeholder="再次输入密码" class="layui-input">
                 </div>
                 <div class="login-btn">
                     <button class="layui-btn login-btn" lay-submit lay-filter="formDemo" id="submit_regiser">确定</button>
@@ -55,6 +73,23 @@
     <script src="__ROOT__/static/js/jquery-3.2.1.min.js"></script>
     <script src="__ROOT__/static/layui.all.js"></script>
     <script>
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#test1' //指定元素
+            });
+        });
+        layui.use('form', function(){
+            var form = layui.form;
+
+            //监听提交
+            form.on('submit(formDemo)', function(data){
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+        });
         $("#To_Register").on('click', function (e) {
             $('#Register').show();
             $('#Login').hide();
