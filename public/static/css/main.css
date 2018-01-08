@@ -18,10 +18,13 @@
 .login{
     width: 100%;
     height: 100%;
-    background: url("../images/login_bg.jpg") no-repeat;
+    /*background: url("../images/login_bg.jpg") no-repeat;*/
     background-size: cover;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    background-size: 100% 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 .login-box{
     width: 350px;
@@ -29,12 +32,13 @@
     margin: auto;
     box-sizing: border-box;
     padding: 20px;
+    margin-bottom: 80px;
 }
 .login-heading{
     font-size: 20px;
     text-align: center;
-    color: #FFFFFF;
-    margin: 80px 0 50px 0;
+    color: #666;
+    margin: 0 0 50px 0;
 }
 .login-box .login-btn{
     text-align: right;
@@ -300,4 +304,33 @@
 .f-goods-buy:hover{
     background-color: #EA2817;
     color: #FFF;
+}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 495596 */
+    src: url('//at.alicdn.com/t/font_495596_w3vvaepff2w6d2t9.eot');
+    src: url('//at.alicdn.com/t/font_495596_w3vvaepff2w6d2t9.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_495596_w3vvaepff2w6d2t9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_495596_w3vvaepff2w6d2t9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_495596_w3vvaepff2w6d2t9.svg#iconfont') format('svg');
+}
+
+.icon{
+    font-family:"iconfont" !important;
+    font-size: inherit;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-alipay:before{
+    content: '\e621';
+}
+
+.icon-weChat:before{
+    content: '\e61b';
+}
+
+.icon-card:before{
+    content: '\e619';
 }

@@ -15,23 +15,39 @@ class Mine extends Base
 {
     public function index()
     {
-        $info = Db::table("user") -> where("id", "=", $_COOKIE["uid"]) -> select()[0];
+        $info = Db::table("user")->where("id", "=", $_COOKIE["uid"])->select()[0];
 
-        $this -> assign([
-           "info" => $info
+        $this->assign([
+            "info" => $info
         ]);
-        return $this -> fetch();
+        return $this->fetch();
     }
+
     public function order()
     {
-        $order = Db::table("order") -> where("user_id", "=", $_COOKIE["uid"]) -> paginate(5);
-        $page  = $order -> render();
+        $order = Db::table("orders")->where("user_id", "=", $_COOKIE["uid"])->paginate(5);
+        $page = $order->render();
 
-        $this -> assign([
+        $this->assign([
             "order" => $order,
-            "page"  => $page
+            "page" => $page
         ]);
 
+        return $this->fetch();
+    }
+
+    public function password()
+    {
+        return $this -> fetch();
+    }
+
+    public function info()
+    {
+        return $this -> fetch();
+    }
+
+    public function apply()
+    {
         return $this -> fetch();
     }
 }

@@ -87,7 +87,7 @@ class Accident extends Base
             "user_id"      => $_COOKIE["uid"]
         );
 
-        $resultOrder = Db::table("order") -> insert($map);
+        $resultOrder = Db::table("orders") -> insert($map);
         $resultUser  = Db::table("user") -> where("id", "=", $_COOKIE["uid"]) -> setDec("wealth", $goods["amount"]);
 
         if ($resultOrder == 1 && $resultUser == 1) {

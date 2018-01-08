@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-26 14:41:20
+Date: 2018-01-08 16:35:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -128,10 +128,10 @@ INSERT INTO `goods` VALUES ('36', '“年年领”终身养老金', '1', '5', '0
 INSERT INTO `goods` VALUES ('37', '泰康定期寿险', '2', '5', '1', '定期寿险', '一年期定期寿险，留爱不留债，用爱守护您的家人！', '72.00', '100', '');
 
 -- ----------------------------
--- Table structure for order
+-- Table structure for orders
 -- ----------------------------
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order` (
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `order_num` varchar(255) DEFAULT NULL,
   `goods_name` varchar(255) DEFAULT NULL,
@@ -140,17 +140,18 @@ CREATE TABLE `order` (
   `limit` varchar(255) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of order
+-- Records of orders
 -- ----------------------------
-INSERT INTO `order` VALUES ('1', 'AE1513438047', '“月月领”终身年金', '财产', '国华保险有限公司', '100', '1');
-INSERT INTO `order` VALUES ('8', 'AE1513438657', '“月月领”终身年金', '财产', '国华保险有限公司', '100', '1');
-INSERT INTO `order` VALUES ('9', 'AE1513438857', '“月月领”终身年金', '财产', '国华保险有限公司', '100', '1');
-INSERT INTO `order` VALUES ('10', 'AE1513439672', '泰康全年综合意外医疗险', '车险', '泰康保险有限公司', '30', '1');
-INSERT INTO `order` VALUES ('11', 'AE1513439875', '境内自驾游保障 ', '意外', '德华安顾', '10', '1');
-INSERT INTO `order` VALUES ('12', 'AE1513439983', '保终身重疾险（可分期）', '旅行', '国华保险有限公司', '10', '1');
+INSERT INTO `orders` VALUES ('1', 'AE1513438047', '“月月领”终身年金', '财产', '国华保险有限公司', '100', '1');
+INSERT INTO `orders` VALUES ('8', 'AE1513438657', '“月月领”终身年金', '财产', '国华保险有限公司', '100', '1');
+INSERT INTO `orders` VALUES ('9', 'AE1513438857', '“月月领”终身年金', '财产', '国华保险有限公司', '100', '1');
+INSERT INTO `orders` VALUES ('10', 'AE1513439672', '泰康全年综合意外医疗险', '车险', '泰康保险有限公司', '30', '1');
+INSERT INTO `orders` VALUES ('11', 'AE1513439875', '境内自驾游保障 ', '意外', '德华安顾', '10', '1');
+INSERT INTO `orders` VALUES ('12', 'AE1513439983', '保终身重疾险（可分期）', '旅行', '国华保险有限公司', '10', '1');
+INSERT INTO `orders` VALUES ('13', 'AE1515382353', '国华综合意外险升级版', '车险', '国华保险有限公司', '10', '3');
 
 -- ----------------------------
 -- Table structure for user
@@ -162,11 +163,12 @@ CREATE TABLE `user` (
   `name` varchar(255) DEFAULT NULL,
   `wealth` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '123456', 'abczzz', '96345.43');
 INSERT INTO `user` VALUES ('2', '123456', '小明', '100000');
-INSERT INTO `user` VALUES ('3', '123456', '小红', '100000');
+INSERT INTO `user` VALUES ('3', '123456', '小红', '99970');
+INSERT INTO `user` VALUES ('4', '123456', 'admin', null);

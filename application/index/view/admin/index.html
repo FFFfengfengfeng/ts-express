@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>网销管理系统</title>
+    <link rel="stylesheet" href="__ROOT__/static/css/layui.css">
+    <link rel="stylesheet" href="__ROOT__/static/css/main.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">网销管理系统</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item"><a href="{:url('login/out')}">退出</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-this"><a href="{:url('admin/index')}">保险种类管理</a></li>
+                <li class="layui-nav-item"><a href="{:url('admin/target')}">网销对象管理</a></li>
+                <li class="layui-nav-item"><a href="{:url('admin/staff')}">网销人员管理</a></li>
+                <li class="layui-nav-item"><a href="{:url('admin/compete')}">网销竞争分析</a></li>
+                <li class="layui-nav-item"><a href="{:url('admin/claims')}">网销理赔管理</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>保险名称</th>
+                    <th>保险期限</th>
+                    <th>保险金额</th>
+                    <th>投保金额</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach name="goods" item="i"}
+                <tr>
+                    <th>{$i.id}</th>
+                    <th>{$i.name}</th>
+                    <th>一年</th>
+                    <th>{$i.amount}</th>
+                    <th>{$i.limit}</th>
+                    <th>
+                        <a href="" class="layui-btn">删除</a>
+                        <a href="" class="layui-btn">发布</a>
+                    </th>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+            {$page}
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+    </div>
+</div>
+<script src="__ROOT__/static/js/jquery-3.2.1.min.js"></script>
+<script src="__ROOT__/static/layui.all.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+</body>
+</html>

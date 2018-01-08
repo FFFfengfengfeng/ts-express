@@ -1,0 +1,64 @@
+<div class="layui-main f-banner">
+    <div class="layui-row">
+        <div class="layui-col-lg2">
+            <div class="f-header-box">
+                <img src="__ROOT__/static/images/user_header.png" alt="">
+                <p>abczzz</p>
+                <a href="javascript:;" style="text-decoration: underline;">修改头像</a>
+            </div>
+            <ul class="layui-nav layui-nav-tree f-nav-tree" lay-filter="test">
+                <li class="layui-nav-item"><a href="{:url('mine/index')}">我的账户</a></li>
+                <li class="layui-nav-item"><a href="{:url('mine/password')}">密码修改</a></li>
+                <li class="layui-nav-item layui-this"><a href="{:url('mine/info')}">修改资料</a></li>
+                <li class="layui-nav-item"><a href="{:url('mine/apply')}">申请理赔</a></li>
+                <li class="layui-nav-item"><a href="{:url('mine/order')}">我的保单</a></li>
+            </ul>
+        </div>
+        <div class="layui-col-lg10 f-slide-main">
+            <div class="f-panel">
+                <div class="f-panel-header">修改资料</div>
+                <div class="f-panel-body">
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">姓名</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">年龄</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" required  lay-verify="required" placeholder="请输入年龄" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">出生日期</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" required  lay-verify="required" placeholder="请输入出生日期" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">身份证</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" required  lay-verify="required" placeholder="请输入身份证" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">性别</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="sex" value="男" title="男">
+                                <input type="radio" name="sex" value="女" title="女" checked>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
