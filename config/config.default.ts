@@ -17,7 +17,7 @@ export default (appInfo: EggAppInfo) => {
             port: '3306',
             user: 'root',
             password: '',
-            database: 'blog'
+            database: 'xf'
         },
         app: true,
         agent: false
