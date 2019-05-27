@@ -13,14 +13,21 @@ export default (appInfo: EggAppInfo) => {
     // config for egg-mysql
     config.mysql = {
         client: {
-            host: '127.0.0.1',
+            host: 'localhost',
             port: '3306',
-            user: 'root',
-            password: '',
-            database: 'xf'
+            user: 'feng',
+            password: '123456',
+            database: 'feng_vue_jd'
         },
         app: true,
-        agent: false
+        agent: true
+    }
+
+    // config for egg-view-ejs
+    config.view = {
+        mapping: {
+            '.ejs': 'ejs'
+        }
     }
 
     // config for csrf

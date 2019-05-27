@@ -3,5 +3,5 @@
 
 import 'egg';
 import 'egg-mysql';
-import 'egg-sequelize';
+import 'egg-view-ejs';
 import 'egg-cors';

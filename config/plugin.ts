@@ -11,9 +11,9 @@ const plugin: EggPlugin = {
         package: 'egg-mysql'
     },
 
-    sequelize: {
+    ejs: {
         enable: true,
-        package: 'egg-sequelize'
+        package: 'egg-view-ejs'
     },
 
     cors: {

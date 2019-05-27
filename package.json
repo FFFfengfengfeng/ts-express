@@ -29,6 +29,7 @@
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.6.0",
     "egg-sequelize": "^4.3.1",
+    "egg-view-ejs": "^2.0.0",
     "mysql2": "^1.6.4"
   },
   "devDependencies": {
@@ -37,7 +38,7 @@
     "@types/supertest": "^2.0.0",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
-    "egg-bin": "^4.6.2",
+    "egg-bin": "^4.13.1",
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.16.0",
     "egg-ts-helper": "^1.11.0",
