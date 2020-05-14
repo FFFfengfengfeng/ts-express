@@ -1,20 +1,15 @@
 {
-  "name": "typescript-actual",
+  "name": "ts-express",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/FFFfengfengfeng/typeScript-actual.git",
+  "repository": "https://github.com/FFFfengfengfeng/ts-express.git",
   "author": "ffffengfengfeng <1098865109@qq.com>",
   "license": "MIT",
-  "scripts": {
-    "dev": "webpack-dev-server",
-    "build": "webpack"
-  },
   "dependencies": {
-    "html-webpack-plugin": "^4.2.0",
-    "ts-loader": "^7.0.1",
-    "typescript": "^3.8.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "@types/node": "^13.13.4",
+    "ts-node": "^8.9.1",
+    "tslint": "^6.1.2",
+    "typeorm": "^0.2.24",
+    "typescript": "^3.8.3"
   }
 }
